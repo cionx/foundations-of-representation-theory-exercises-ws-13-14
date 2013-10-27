@@ -6,24 +6,179 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{enumerate}
 
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
 \addtocounter{section}{4}
-
-\renewcommand{\thesection}{Exercise \arabic{section}}
-
+\renewcommand{\thesection}{Exercise \arabic{section}:}
 
 \setromanfont[Mapping=tex-text]{Linux Libertine O}
 % \setsansfont[Mapping=tex-text]{DejaVu Sans}
 % \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
 
-\title{Foundation on representation theory — 2. exercise sheet}
+\parindent 0pt
+
+\title{Foundations of representation theory \\ 2. exercise sheet}
 \author{Jendik Stelzner}
 \date{\today}
 
 \begin{document}
 \maketitle
+
+\section*{Exercise 5 and 6:}
+Let $V$ be a $2$-dimensional module. The following are equivalent:
+\begin{enumerate}[(i)]
+ \item $V$ has at least $5$ submodules.
+ \item Every subspace of $V$ is a submodule.
+ \item $V$ is not cyclic.
+\end{enumerate}
+
+\begin{proof}
+\subsection*{$(i) \Rightarrow (ii)$}\addtocounter{section}{2}
+Let $j \in J$ be fixed but arbitrary.
+Since $V$ has at least $5$ submodules, at least $3$ of these submodules have to be nontrivial. Since these three have to be $1$-dimensional, we find pairwise linear independent $v_1, v_2, v_3 \in V$ with $v_i \neq 0$ for all $i$, such that $\gen{v_1}$, $\gen{v_2}$ and $\gen{v_3}$ are submodules. Since $\phi_j(v_i) \in \gen{v_i}$ for all $i$, it follows that every $v_i$ is an eigenvector of $\phi_j$. Let $\lambda_i$ be the eigenvalue of $v_i$. If the $\lambda_i$ were pairwise different, $\{v_1, v_2, v_3\}$ would be linear independent, which is not possible because $V$ is only $2$-dimensional. So there must be $i_1, i_2 \in \{1,2,3\}$ with $i_1 \neq i_2$ but $\lambda_{i_1} = \lambda_{i_2}$. Since $v_{i_1}$ and $v_{i_2}$ are linear independent, it follows that $\{v_{i_1}, v_{i_{2}}\}$ is a basis of $V$. From this it follows that every every $v \in V, v \neq 0$ is an eigenvector of $\phi_j$ with eigenvalue $\lambda_{i_1}$. This directly implies that every subspace of $V$ is $\phi_j$ invariant. Because $j$ is arbitrary it follows that every subspace is $\phi_j$ invariant for all $j \in J$, so every subspace is a submodule.
+
+\subsection*{$(ii) \Rightarrow (i)$}
+Let $\{v_1, v_2\}$ be a basis of $V$. Since $v_1, v_2$ and $v_1+v_2$ are pairwise linear independent, $\{0\}$, $\gen{v_1}$, $\gen{v_2}$, $\gen{v_1+v_2}$ and $V$ are five pairwise different submodules of $V$.
+
+\subsection*{$(ii) \Rightarrow (iii)$}
+Since for every $v \in V$, $U(v) = \gen{v}$ is an at most $1$-dimensional submodule of $V$, there is no $v \in V$ such that $U(v) = V$. So $V$ is not cyclic.
+
+\subsection*{$(iii) \Rightarrow (ii)$}
+Assume that not every subspace of $V$ is a submodule. Than we find a subspace $U \subseteq V$ such that $U$ is not a submodule of $V$. This implies that $U$ is nontrivial, so $U$ must be $1$-dimensional. Let $v \in U$ be a basis vector of $U$. Because $U$ is a subspace but no submodule of $V$ there exist $j \in J$ such that $\phi_j(v) \not \in U = \gen{v}$. This means that $v$ and $\phi_j(v)$ are linear independent and thus $\{v,\phi_j(v)\}$ is a basis of $V$ and $V = U(v)$. So $V$ is cyclic.
+\end{proof}
+
+$(i) \Rightarrow (ii)$ shows Exercise 5, and $\neg (i) \Rightarrow \neg (iii)$ shows Exercise 6.
+
+
+
+
+
+\section{}
+A matrice $A = (a_{ij})\in M_3(K)$ describes a vector space endomorphism of $K^3$, which is a module endomorphism of $V$ if and only if
+\begin{equation}\label{comm}
+ A \vect{0&0&0\\1&0&0\\0&0&0} = \vect{0&0&0\\1&0&0\\0&0&0} A \text{ and } A\vect{0&0&0\\0&0&0\\1&0&0} = \vect{0&0&0\\0&0&0\\1&0&0}A.
+\end{equation}
+By matrix multiplication we get
+\begin{align*}
+ \begin{pmatrix}
+  a_{12} & 0 & 0\\
+  a_{22} & 0 & 0\\
+  a_{32} & 0 & 0
+ \end{pmatrix}
+ = A \vect{0&0&0\\1&0&0\\0&0&0} = \vect{0&0&0\\1&0&0\\0&0&0} A =
+ \begin{pmatrix}
+       0 &      0 &      0\\
+  a_{11} & a_{12} & a_{13}\\
+       0 &      0 &      0
+ \end{pmatrix}
+ \shortintertext{and}
+ \begin{pmatrix}
+  a_{13} & 0 & 0\\
+  a_{23} & 0 & 0\\
+  a_{33} & 0 & 0
+ \end{pmatrix}
+ = A\vect{0&0&0\\0&0&0\\1&0&0} = \vect{0&0&0\\0&0&0\\1&0&0}A =
+ \begin{pmatrix}
+       0 &      0 &      0\\
+       0 &      0 &      0\\
+  a_{11} & a_{12} & a_{13}
+ \end{pmatrix}.
+\end{align*}
+So $A$ does satisfy \eqref{comm} if and only if $a_{12} = a_{13} = a_{23} = a_{32} = 0$ and $a_{11} = a_{22} = a_{33}$. The set of all matrices satisfying this conditions is
+\[
+ \left\{
+  \begin{pmatrix}
+   a & 0 & 0\\
+   b & a & 0\\
+   c & 0 & a
+  \end{pmatrix}
+  : a,b,c \in K
+ \right\}.
+\]
+
+$V$ is not simple, because \[U = \gen{e_2,e_3} = \ker \vect{0&0&0\\1&0&0\\0&0&0} = \ker \vect{0&0&0\\0&0&0\\1&0&0}\] is a nonzero proper submodule of V.
+
+$V$ is indecomposable: For submodules $U_1, U_2 \subseteq V$ with $U_1 \oplus U_2 = V$ there exist $\lambda, \mu \in K$ such that $e_1 + \lambda e_2 + \mu e_3 \in U_1$ or $e_1 + \lambda e_2 + \mu e_3 \in U_2$, because otherwise $v$ and $e_1$ would be linear independent for all $v \in U_1$ and $v \in U_2$, so $v$ and $e_1$ would be linear independent for all $v \in U_1 \oplus U_2 = V$, which is obviously not the case. W.l.o.g. we can assume that $e_1 + \lambda e_2 + \mu e_3 \in U_1$. Because $U_1$ is a submodule of $V$ it follows that
+\begin{align*}
+ \vect{0&0&0\\1&0&0\\0&0&0} (e_1 + \lambda e_2 + \mu e_3) &= e_2 \in U_1 \text{ and } \\
+ \vect{0&0&0\\0&0&0\\1&0&0} (e_1 + \lambda e_2 + \mu e_3) &= e_3 \in U_1.
+\end{align*}
+This implies that
+\[V = \gen{e_1, e_2, e_3} = \gen{e_1 + \lambda e_2 + \mu e_3, e_2, e_3} \subseteq U_1 \subseteq V, \]
+so $U_1 = V$. Because $U_1 \cap U_2 = \{0\}$ this means that $U_2 = \{0\}$ and that $V$ is indecomposable.
+
+
+
+
+
+\section{}
+
+\subsection*{well-defined}
+It first needs to be shown that the function is well-defined, i.e. that for all $f \in \Hom_J(V,W)$ $\Gamma_f$ is a submodule of $V \times W$ with $\Gamma_f \oplus (0 \times W) = V \times W$. (It is clear that $0 \times W$ is a submodule of $V \times W$, since $0$ is a submodule of $V$ and $W$ is a submodule of itself.)
+
+Let $f \in \Hom_J(V,W)$. $\Gamma_f \subseteq V \times W$ is a subspace: It is $(0,0) = (0,f(0)) \in \Gamma_f$, for $(v,f(v)) \in \Gamma_f$ is $-(v,f(v)) = (-v,f(-v)) \in \Gamma_f$, for $(v,f(v)), (v',f(v')) \in \Gamma_f$ is $(v,f(v))+(v',f(v')) = (v+v',f(v+v')) \in \Gamma_f$, and for $(v,f(v)) \in \Gamma_f$ and $\lambda \in K$ we find $\lambda (v,f(v)) = (\lambda v, f(\lambda v)) \in \Gamma_f$. To show that $\Gamma_f$ is a submodule we also need to show that $(\phi_j \oplus \psi_j)(v,f(v)) \in \Gamma_f$ for all $j \in J$ and $v \in V$. This holds because $f$ is an module homomorphism and so
+\[
+ (\phi_j \oplus \psi_j)(v,f(v))
+ = (\phi_j(v), \psi_j(f(v)))
+ = (\phi_j(v), f(\phi_j(i))) \in \Gamma_f.
+\]
+To show that $\Gamma_f \oplus (0 \times W) = V \times W$ we first notice that $\Gamma_f \cap (0 \times W) = \{(0,0)\}$: For $(x,y) \in \Gamma_f \cap (0 \times W)$ we find $v \in V$ und $w \in W$ such that $(v,f(v)) = (x,y) = (0,w)$. So $v = 0$ and $w = f(v) = f(0) = 0$ and thus $(x,y) = (0,0)$. To show that $\Gamma_f + (0 \times W) = V \times W$ we notice that for all $(v,w) \in V \times W$
+\[
+ (v,w) = (v,f(v)) + (0,w-f(v)) \in \Gamma_f + (0 \times W).
+\]
+
+\subsection*{injective}
+To show that the function is injective we notice that for $f,g \in \Hom_J(V,W)$
+\begin{align*}
+ \Gamma_f = \Gamma_g
+ &\Rightarrow \{(v,f(v)) : v \in V\} = \{(v,g(v)) : v \in V\} \\
+ &\Rightarrow (v,f(v)) = (v,g(v)) \text{ for all } v \in V \\
+ &\Rightarrow f(v) = g(v) \text{ for all } v \in V \\
+ &\Rightarrow f = g.
+\end{align*}
+
+\subsection*{surjective}
+To show that the function is surjective we construct for each submodule $U \subseteq V \times W$ with $U \oplus (0 \times W) = V \times W$ a homomorphism $f_U \in \Hom_J(V,W)$ with $\Gamma_{f_U} = U$.
+
+Let $U \subseteq V \times W$ be a submodule with $U \oplus (0 \times W) = V \times W$. For every $v \in V$ there exist a unique $w_v \in W$ with $(v,w_v) \in U$: To show the uniqueness we notice that for $(v,w), (v,w') \in U$ with $(v,w) = (v,w')$
+\[
+ U \ni (v,w)-(v,w') = (0,w-w') \in W \Rightarrow w-w' = 0 \Rightarrow w=w',
+\]
+since $U \subseteq V \times W$ is a subspace and $U \cap (0 \times W) = \{(0,0)\}$. To show that such a $w_v$ exists we write $(v,w) \in V \times W$ uniquely as $(v,w) = (v,w') + (0,w'')$ with $(v,w') \in U$ and $(0,w'') \in 0 \times W$; this is possible because $V =  U \oplus (0 \times W)$.
+
+This now allows us to define a function $f : V \rightarrow W, v \mapsto w_v$. Note that from the definition of $f$ it directly follows that $f(v)=w \Leftrightarrow (v,w) \in U$ and $\Gamma_f = U$. It turns out that $f$ is a module homomorphism: Because $U \subseteq V \times W$ is a subspace we find that for $v, v' \in V$
+\[
+ (v+v',f(v)+f(v')) = (v,f(v))+(v',f(v')) \in U,
+\]
+so $f(v+v') = f(v) + f(v')$. We also find that for all $v \in V$ and $\lambda \in K$
+\[
+ (\lambda v, \lambda f(v)) = \lambda (v,f(v)) \in U,
+\]
+so $f(\lambda v) = \lambda f(v)$. This shows that $f$ is $K$-linear. To show that $f$ is a module homomorphism we notice that for all $v \in V$ and $j \in J$
+\[
+ (v,f(v)) \in U \Rightarrow (\phi_j(v), \psi_j(f(v))) \in U,
+\]
+because $U$ is a submodule of $V \times W$. This implies $f(\phi_j(v)) = \psi_j(f(v))$ for all $v \in V$ and $j \in J$, so $f \phi_j = \psi_j f$ for all $j \in J$. This shows that $f$ is a module homomorphism.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
