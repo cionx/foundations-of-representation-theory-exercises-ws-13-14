@@ -10,10 +10,12 @@
 
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\kchar}{\operatorname{char}}
+\newcommand{\tr}{\operatorname{tr}}
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
-\addtocounter{section}{4}
+\addtocounter{section}{8}
 \renewcommand{\thesection}{Exercise \arabic{section}:}
 
 \setromanfont[Mapping=tex-text]{Linux Libertine O}
@@ -29,6 +31,23 @@
 \begin{document}
 \maketitle
 
+\section{}
+
+\section{}
+
+\section{}
+
+\section{}
+Let $K$ be a field with $\kchar(K) = 0$ and $(V,\phi_1,\phi_2)$ is a  $2$-module such that $V \neq 0$ and $[\phi_1, \phi_2] = 1$. Assume that $V$ is finite-dimensional. Because $V \neq 0$ we know that $n := \dim V \geq 1$. Let $v_1, \ldots, v_n$ be a Basis von $V$ and $\Phi_1$ and $\Phi_2$ the coordinate matrix of $\phi_1, \phi_2$ with respect to the basis $v_1, \ldots, v_n$ respectively. Because $[\phi_1, \phi_2] = 1$ we find that $\Phi_1 \Phi_2 - \Phi_2 \Phi_1 = I_n$. It follows, that
+\[
+ 0
+ = \tr \Phi_1 \tr \Phi_2 - \tr \Phi_2 \tr \Phi_1
+ = \tr (\Phi_1\Phi_2-\Phi_2\Phi_1)
+ = \tr I_n
+ = n \cdot 1
+ \neq 0.
+\]
+This shows that $(V,\phi_1,\phi_2)$ must be finite dimensional. (We know that such a module exists, because $\left(K[T], T\cdot, \frac{d}{dT}\right)$ is one.)
 
 
 
