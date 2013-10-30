@@ -31,11 +31,43 @@
 \begin{document}
 \maketitle
 
-\section{}
+
+
+
 
 \section{}
 
+
+
+
+
 \section{}
+
+
+
+
+
+\section{}
+Let $e_1, \ldots, e_n$ be the canonical basis of $K^n$ and $\phi, \psi \in \Hom_{K}(K^n)$ be defined as
+\[
+ \phi(e_i) :=
+ \begin{cases}
+  0       & \text{ if } i=1 \\
+  e_{i-1} & \text{ otherwise}
+ \end{cases}
+ \text{ and }
+ \psi(e_i) :=
+ \begin{cases}
+  e_1     & \text{ if } i=n \\
+  e_{i+1} & \text{ otherwise}
+ \end{cases}.
+\]
+Let $U \subseteq K^n$ be a submodule. If $U \neq 0$ we find $v \in U$ with $v \neq 0$. Since $e_1, \ldots, e_n$ is a basis of $K^n$ we find $\lambda_1, \ldots, \lambda_n \in K$ with $v = \sum_{i=1}^n \lambda_i e_i$. Let $m := \max \{i \in \{1, \ldots, n\} : \lambda_i \neq 0\}$; this is well-defined because $v \neq 0$, so $\lambda_i \neq 0$ for some $i \in \{1, \ldots, n\}$. Because $U$ is a submodule we find that $e_1 = \lambda_m^{-1} \phi^m(v) \in U$. So for all $i \in \{1, \ldots, n\}$ we get $e_i = \psi^i(e_1) \in U$. Since $\{e_1, \ldots, e_n\} \subseteq U$ it follows that $U = K^n$. So every submodule $(K^n, \phi, \psi)$ is either $0$ or $K^n$, which means that $(K^n,\phi,\psi)$ is an $n$-dimensional simple $2$-module.
+
+
+
+
+
 
 \section{}
 Let $K$ be a field with $\kchar(K) = 0$ and $(V,\phi_1,\phi_2)$ is a  $2$-module such that $V \neq 0$ and $[\phi_1, \phi_2] = 1$. Assume that $V$ is finite-dimensional. Because $V \neq 0$ we know that $n := \dim V \geq 1$. Let $v_1, \ldots, v_n$ be a Basis von $V$ and $\Phi_1$ and $\Phi_2$ the coordinate matrix of $\phi_1, \phi_2$ with respect to the basis $v_1, \ldots, v_n$ respectively. Because $[\phi_1, \phi_2] = 1$ we find that $\Phi_1 \Phi_2 - \Phi_2 \Phi_1 = I_n$. It follows, that
