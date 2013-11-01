@@ -6,12 +6,13 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{enumerate}
+\usepackage{paralist}
 
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\kchar}{\operatorname{char}}
 \newcommand{\tr}{\operatorname{tr}}
+\newcommand{\img}{\operatorname{im}}
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
@@ -25,7 +26,7 @@
 \parindent 0pt
 
 \title{Foundations of representation theory \\ 3. exercise sheet}
-\author{Jendik Stelzner}
+\author{Jendrik Stelzner}
 \date{\today}
 
 \begin{document}
@@ -38,15 +39,114 @@
 \section{}
 
 
+\subsection*{$\End(V)$}
+$\End(V)$ (as a set of $3 \times 3$-matrices) consists of all $A = (a_{ij}) \in M(3 \times 3, K)$ with
+\[
+ \vect{0&a_{11}&0\\0&a_{21}&0\\0&a_{31}&0}
+ = A \vect{0&1&0\\0&0&0\\0&0&0}
+ = \vect{0&1&0\\0&0&0\\0&0&0}A
+ = \vect{a_{21}&a_{22}&a_{23}\\0&0&0\\0&0&0}.
+\]
+This is the case if and only if $a_{11}=a_{22}$ and $a_{21}=a_{23}=a_{31}=0$. So
+\[
+ \End(V) = \left\{ \vect{a&b&c\\0&a&0\\0&d&e} : a,b,c,d,e \in K\right\}.
+\]
+
+
+\subsection*{idempotent endomorphisms}
+An endomorphism $f = \vect{a&b&c\\0&a&0\\0&d&e} \in \End(V)$ is idempotent if and only f
+\[
+ \vect{a&b&c\\0&a&0\\0&d&e} = \vect{a&b&c\\0&a&0\\0&d&e}^2 =
+ \begin{pmatrix}
+  a^2 & 2ab+cd & ac+ce \\
+  0   & a^2    & 0 \\
+  0   & ad+de & e^2
+ \end{pmatrix},
+\]
+which is equivalent to the following conditions holding all at once:
+\begin{inparaenum}[(i)]
+ \item $a^2 = a$,
+ \item $e^2 = e$,
+ \mbox{\item $b = 2ab+cd$},
+ \item $c = ac+ce = c(a+e)$
+ and
+ \item $d = ad+de = d(a+e)$.
+\end{inparaenum}
+From (i) it follows that $a = 0$ or $a = 1$ and from (ii) it follows that $e = 0$ or $e = 1$. From (iv) it follows that $e = 1-a$ if $c \neq 0$ and from (v) it follows that $e = 1-a$ if $d \neq 0$. From (iii) it follows that if $c = 0$ or $d = 0$ then $b = 0$ (because $a=0$ or $a=1$). The idempotent endomorphisms of $V$ can now be easily found by case differentiation.
+
+\subsubsection*{$c = d = 0$}
+If $c = d = 0$ then $b = 0$. This gives us the idempotent endomorphisms
+\[
+ f_1 = 0, f_2 = 1, f_3 = \vect{0&&\\&0&\\&&1} \text{ and } f_4 = \vect{1&&\\&1&\\&&0}.
+\]
+
+\subsubsection*{$c \neq 0$ and $d = 0$}
+If $c \neq 0$ and $d = 0$ then $b = 0$ and $e = 1-a$. This gives us the idempotent endomorphisms
+\[
+ f^c_5 = \vect{1&&c\\&1&\\&&} \text{ and } f^c_6 = \vect{0&&c\\&0&\\&&1}.
+\]
+
+\subsubsection*{$c = 0$ and $d \neq 0$}
+If $c = 0$ and $d \neq 0$ then $b = 0$ and $e = 1-a$. Thus we get the idempotent endomorphisms
+\[
+ f^d_7 = \vect{1&&\\&1&\\&d&0} \text{ and } f^d_8 = \vect{0&&\\&0&\\&d&1}
+\]
+
+\subsubsection*{$c \neq 0$ and $d \neq 0$}
+If $c \neq 0$ and $d \neq 0$ then $e = 1-a$. If $a = 0$ then $b = cd$, if $a = 1$ then $b=2b+cd$, so $b=-cd$. Thus we get the idempotent endomorphisms
+\[
+ f^{c,d}_9 = \vect{0&cd&c\\&0&\\&d&1} \text{ and } f^{c,d}_{10} = \vect{1&-cd&c\\&1&\\&d&0}
+\]
+
+
+\subsection*{direct sum decompositions}
+We know that submodules $V_1, V_2 \subseteq V$ are a direct sum decomposition \mbox{$V = V_1 \oplus V_2$} if and only if there exists an idempotent endomorphism $f \in \End(V)$ with $V_1 = \ker f$ and $V_2 = \img f$. So the direct sum decompositions of $V$ are
+\begin{align}
+ V
+ &= \img(f_1) \oplus \ker(f_1)
+ = \ker(f_2) \oplus \img(f_2)
+ = 0 \oplus V \\
+ &= \img(f_3) \oplus \ker(f_3)
+ = \ker(f_4) \oplus \img(f_4)
+ = \gen{e_3} \oplus \gen{e_1, e_2} \\
+ &= \img(f^c_5) \oplus \ker(f^c_5)
+ = \ker(f^{-c}_6) \oplus \img(f^{-c}_6)
+ = \gen{e_1, e_2} \oplus \gen{(-c,0,1)^T}\\
+ &= \img(f^d_7) \oplus \ker(f^d_7)
+ = \ker(f^{-d}_8) \oplus \img(f^{-d}_8)
+ = \gen{e_1, (0,1,d)^T} \oplus \gen{e_3} \\
+ &= \img(f^{c,d}_9) \oplus \ker(f^{c,d}_9)
+ = \ker(f^{-c,-d}_{10}) \oplus \img(f^{-c,-d}_{10}) \notag \\
+ &= \gen{(c,0,1)^T} \oplus \gen{e_1, (0,1,-d)^T}  
+\end{align}
+with $c, d \in K^*$ arbitrary and $e_1, \ldots, e_n$ denoting the canonical basis of $K^n$. ($V_1 \oplus V_2$ and $V_2 \oplus V_1$ are seen as the same decomposition.) 
+
+\subsection*{the map $\Gamma: f \mapsto (\img e, \ker e)$}
+Since I don’t understand what is meant by describing the map $\Gamma$, I will just write down some properties and observations:
+
+$\Gamma$ is injective: If $f$ and $g$ are idempotent endomorphisms then
+\[
+ \Gamma(f) = \Gamma(g)
+ \Rightarrow \img(f) = \img(g) \text{ and } \ker(f) = \ker(g)
+\]
+so $f(x) = 0 = g(x)$ for all $x \in \ker(f) = \ker(g)$ and $f(x) = x = g(x)$ for all $x \in \img(f) = \img(g)$ (because $f$ and $g$ are idempotent). Since $V = \img(f) \oplus \ker(f) = \img(g) \oplus \ker(g)$ it follows that $f(x) = g(x)$ for all $x \in V$, so $f = g$.
+
+It is easy to see that for any idempotent endomorphism $f \in \End(V)$:
+\[
+ \Gamma(f) = (\img f, \ker f) = (\ker (1-f), \img (1-f))  \in \img \Gamma,.
+\]
+
+The following observation is an interesting one: All direct sum decompositiots of $V$ except for $V = 0 \oplus V = V \oplus U$ are formed using only four kinds of different submodules: $\gen{e_3}$ and $\gen{c,0,1)^T}$ (both $1$-dimensional) and $\gen{e_1,(0,1,d)^T}$ and $\gen{e_1,e_2}$ (both $2$-dimensonial). For an idempotent endomorphism $f \in \Hom(V)$ there is a connection between the matrix of $f$ and the corresponding direct sum decomposition $V = U_1 \oplus U_2$ with $U_1$ is $1$-dimensional and $U_2$ is $2$-dimensional: If $f$ is given by the matrix $\vect{a&b&c\\0&a&0\\0&d&e}$ then $U_1 = \gen{e_3}$ if $c=0$ and $U_1 = \gen{(c,0,1)^T}$ if $c \neq 0$, as well as $U_2 = \gen{e_1, e_2}$ if $d = 0$ and $U_2 = \gen{e_1, (0,1,d)^T}$ if $d \neq 0$. So the $1$-dimensional component is solely determined by $c$, and the $2$-dimensional component is solely determined by $d$, and both in a very simple way.
 
 
 
-\section{}
 
 
 
 
 
+
+\addtocounter{section}{1}
 \section{}
 Let $e_1, \ldots, e_n$ be the canonical basis of $K^n$ and $\phi, \psi \in \Hom_{K}(K^n)$ be defined as
 \[
@@ -58,11 +158,11 @@ Let $e_1, \ldots, e_n$ be the canonical basis of $K^n$ and $\phi, \psi \in \Hom_
  \text{ and }
  \psi(e_i) :=
  \begin{cases}
-  e_1     & \text{ if } i=n \\
+        0 & \text{ if } i=n \\
   e_{i+1} & \text{ otherwise}
  \end{cases}.
 \]
-Let $U \subseteq K^n$ be a submodule. If $U \neq 0$ we find $v \in U$ with $v \neq 0$. Since $e_1, \ldots, e_n$ is a basis of $K^n$ we find $\lambda_1, \ldots, \lambda_n \in K$ with $v = \sum_{i=1}^n \lambda_i e_i$. Let $m := \max \{i \in \{1, \ldots, n\} : \lambda_i \neq 0\}$; this is well-defined because $v \neq 0$, so $\lambda_i \neq 0$ for some $i \in \{1, \ldots, n\}$. Because $U$ is a submodule we find that $e_1 = \lambda_m^{-1} \phi^m(v) \in U$. So for all $i \in \{1, \ldots, n\}$ we get $e_i = \psi^i(e_1) \in U$. Since $\{e_1, \ldots, e_n\} \subseteq U$ it follows that $U = K^n$. So every submodule $(K^n, \phi, \psi)$ is either $0$ or $K^n$, which means that $(K^n,\phi,\psi)$ is an $n$-dimensional simple $2$-module.
+Let $U \subseteq K^n$ be a submodule. If $U \neq 0$ we find $v \in U$ with $v \neq 0$. Since $e_1, \ldots, e_n$ is a basis of $K^n$ we find $\lambda_1, \ldots, \lambda_n \in K$ with $v = \sum_{i=1}^n \lambda_i e_i$. Let $m := \max \{i \in \{1, \ldots, n\} : \lambda_i \neq 0\}$; this is well-defined because $v \neq 0$, so $\lambda_i \neq 0$ for some $i \in \{1, \ldots, n\}$. Because $U$ is a submodule we find that $e_1 = \lambda_m^{-1} \phi^{m-1}(v) \in U$. So for all $i \in \{1, \ldots, n\}$ we get $e_i = \psi^i(e_1) \in U$. Since $\{e_1, \ldots, e_n\} \subseteq U$ it follows that $U = K^n$. So every submodule $(K^n, \phi, \psi)$ is either $0$ or $K^n$, which means that $(K^n,\phi,\psi)$ is an $n$-dimensional simple $2$-module.
 
 
 
@@ -79,7 +179,7 @@ Let $K$ be a field with $\kchar(K) = 0$ and $(V,\phi_1,\phi_2)$ is a  $2$-module
  = n \cdot 1
  \neq 0.
 \]
-This shows that $(V,\phi_1,\phi_2)$ must be finite dimensional. (We know that such a module exists, because $\left(K[T], T\cdot, \frac{d}{dT}\right)$ is one.)
+This shows that $(V,\phi_1,\phi_2)$ must be infinite dimensional. (We know that such a module exists, because $\left(K[T], T\cdot, \frac{d}{dT}\right)$ is one.)
 
 
 
