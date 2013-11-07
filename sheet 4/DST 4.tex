@@ -8,11 +8,21 @@
 \usepackage{mathtools}
 \usepackage{paralist}
 
+\theoremstyle{definition}
+\newtheorem{own}{}
+\newtheorem{lem}[own]{Lemma}
+\newtheorem*{claim}{Claim}
+\newtheorem{rem}[own]{Remark}
+\newtheorem*{ia}{Base case}
+\newtheorem*{is}{Induction step}
+
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\img}{\operatorname{im}}
+\newcommand{\soc}{\operatorname{soc}}
+\newcommand{\rad}{\operatorname{rad}}
 \newcommand{\kchar}{\operatorname{char}}
 \newcommand{\tr}{\operatorname{tr}}
-\newcommand{\img}{\operatorname{im}}
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
@@ -33,6 +43,60 @@
 \maketitle
 
 
+
+
+
+\section{}
+
+
+
+
+
+\section{}
+
+
+
+
+
+\section{}
+
+\subsection*{$\neg (ii) \Rightarrow \neg (i)$}
+Assume that $V = U \oplus C$ is a direct sum decomposition with $U$ simple.
+\begin{claim}
+ $C$ is maximal in V.
+\end{claim}
+With this we find that
+\[
+ U \subseteq \soc(V) \text{ and } \rad(V) \subseteq C
+\]
+because $U$ is simple and $C$ is maximal in $V$. Because $U$ nonzero with $U \cap C = 0$, this implies that $\soc(V) \nsubseteq \rad(V)$.
+\begin{proof}[Proof of the claim]
+ Let $C' \subseteq V$ be a submodule with $C \subseteq C' \subseteq V$. Let $C'' := C' \cap U$. Because $V$ is simple we know that $C'' = 0$ or $C'' = U$. If $C'' = 0$ then
+ \[
+  C = C + C'' = C + (U \cap C') = (C + U) \cap C' = V \cap C' = C'.
+ \]
+ If $C'' = U$ we get
+ \[
+  U = C'' = C' \cap U, \text{ so } V = U \cap C \subseteq C', \text{ so } C' = V. \qedhere
+ \]
+\end{proof}
+
+
+
+
+\subsection*{$(ii) \Rightarrow (i)$}
+Assume that $V$ does not have a simple direct summand. If $V$ has no maximal submodule, then $\soc(V) \subseteq \rad(V) = V$ is trivial.
+If $V$ does have at least one maximal submodule it is easy to see that
+\[
+ \soc(V) \subseteq \rad(V) \Leftrightarrow S \subseteq U \text{ for all } S \subseteq V \text{ simple and all } U \subseteq V \text{ maximal}.
+\]
+Assume that $S \subseteq V$ is simple and $U \subseteq W$ is maximal with $S \nsubseteq U$. Then $S \cap U \neq S$ and $S \subsetneq S+U$. Because $S$ is simple this implies $S \cap U = 0$, and because $U$ is maximal it implies $S+U = V$. So $V = S \oplus U$. This is a contradiction to the assumption that $V$ does not have a simple direct summand. So $S \subseteq U$ for all for all $S \subseteq V$ simple and all $U \subseteq V$ maximal.
+
+
+
+
+
+\section{}
 
 
 
