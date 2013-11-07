@@ -61,6 +61,116 @@
 \section{}
 
 
+\begin{lem}\label{lem:cool}
+ Let $V$ and $W$ be modules and $f : V \rightarrow W$ a module homomorphism. Then the following hold:
+ \begin{enumerate}[i)]
+  \item For every submodule $U \subseteq W$ the preimage $f^{-1}(U)$ is a submodule of $V$. \label{lem:urbild}
+  \item If $U \subseteq V$ is a submodule, $\pi : V \twoheadrightarrow V\!/U$ the canonical projection and $W \subseteq V\!/U$ a maximal submodule, then $\pi^{-1}(W)$ is a maximal submodule of $V$. \label{lem:urbildmax}
+  \item If $W \subseteq V$ is maximal in $V$ and $U \subseteq W$ is a submodule then $W\!/U$ is maximal in $V\!/U$ and $\pi^{-1}(W\!/U) = W$. \label{lem:bildmax}
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \subsubsection*{\ref{lem:urbild})}
+  We know from algebra that $f^{-1}(U)$ is an additive subgroup of $V$. $f^{-1}(U)$ is also a subspace of $V$, since for all $\lambda \in K$
+  \[
+   v \in f^{-1}(U)
+   \Rightarrow f(v) \in U
+   \Rightarrow f(\lambda v) = \lambda f(v) \in U
+   \Rightarrow \lambda v \in f^{-1}(U).
+  \]
+  $f^{-1}(U)$ is a submodule of $V$, since $f$ is a module homomorphism and $U$ a submodule and so for all $j \in J$ and $v \in f^{-1}(U)$
+  \[
+   f( \phi_j(v)) = \psi_j( f(v) ) \in U,
+  \]
+  so $\phi_j(v) \in f^{-1}(U)$.
+ \subsubsection*{\ref{lem:urbildmax})}
+  From \ref{lem:urbild}) it follows that $f^{-1}(W)$ is a submodule of $V$. Let $W' \subseteq V$ be a arbitrary submodule with
+  \begin{equation}\label{eq:urbildmax}
+   \pi^{-1}(W) \subseteq W' \subseteq V.
+  \end{equation}
+  Then $W \subseteq W'\!/U \subseteq V\!/U$, so the maximality of $W$ implies that $W'\!/U = W$ or $W'\!/U = V\!/U$. If $W'\!/U = W$ then
+  \[
+   W' \subseteq \pi^{-1}(W'\!/U) = \pi^{-1}(W),
+  \]
+  and with \eqref{eq:urbildmax} we get $W' = \pi^{-1}(W)$. If $W'\!/U = V\!/U$ then the the isomorphism theorems imply that
+  \[
+   V\!/W' \cong (V\!/U)/(W'\!/U) = 0,
+  \]
+  so $W' = V$.
+ \subsubsection*{\ref{lem:bildmax})}
+  $W\!/U$ is a proper submodule of $V\!/U$, because $W$ is maximal in $V$ and so
+  \[
+   (V\!/U)/(W\!/U) \cong \underbrace{V\!/W}_{\text{simple}} \neq 0.
+  \]
+  Let $W' \subseteq V\!/U$ be a submodule with
+  \[
+   W\!/U \subseteq W' \subsetneq V\!/U.
+  \]
+  We know from \ref{lem:urbild}) that $\pi^{-1}(W')$ is a submodule of $V$, and obviously
+  \[
+    W \subseteq \pi^{-1}(W\!/U) \subseteq \pi^{-1}(W') \subsetneq V.
+  \]
+  So the maximality of $W$ implies that $W = \pi^{-1}(W')$. So
+  \[
+   W\!/U = \pi(W) = \pi(\pi^{-1}(W')) = W'.
+  \]
+  This shows that $W\!/U$ is maximal in $V\!/U$. Now \textbf{\ref{lem:cool} \ref{lem:urbildmax})} implies that $\pi^{-1}(W\!/U)$ is maximal is $V$. Because $W \subseteq \pi^{-1}(W\!/U)$ it follows that $W = \pi^{-1}(W\!/U)$.
+\end{proof}
+
+
+\subsection*{(ii)}
+If $V\!/U$ does not have any maximal submodules we get $\rad(V\!/U) = V\!/U$ and
+\[
+ (U+\rad(V))/U \subseteq V\!/U = \rad(V\!/U)
+\]
+If $V\!/U$ does have maximal submodules, then by definition we get
+\begin{align*}
+ &\; (U + \rad(V))/U \subseteq \rad(V\!/U) \\
+ \Leftrightarrow&\; (U + \rad(V))/U \subseteq \bigcap_{\substack{W \subseteq V\!/U \\ W \text{ maximal}}} W \\
+ \Leftrightarrow&\; (U + \rad(V))/U \subseteq W \text{ for all } W \subseteq V\!/U \text{ maximal}.
+\end{align*}
+Let $W \subseteq V\!/U$ be an arbitrary maximal submodule. Using Lemma \textbf{\ref{lem:cool} \ref{lem:urbildmax})} we find that $\pi^{-1}(W)$ is a maximal submodule of $V$, where $\pi : V \twoheadrightarrow V/U$ is the canonical projection. Obviously we have $U \subseteq \pi^{-1}(W)$, and because $\pi^{-1}(W)$ is maximal in $V$ we also get $\rad(V) \subseteq \pi^{-1}(W)$, so
+\[
+ U+\rad(V) \subseteq \pi^{-1}(W),
+\]
+and thus
+\[
+ (U+\rad(V))/U = \pi(U+\rad(V)) \subseteq \pi(\pi^{-1}(W)) = W.
+\]
+
+
+\subsection*{(i)}
+From part \textbf{(ii)} we get
+\[
+ \rad(V)/U = (U+\rad(V))/U \subseteq \rad(V\!/U),
+\]
+so all that’s left to show is $\rad(V\!/U) \subseteq \rad(V)/U$. If $V$ has no maximal submodules, then $\rad(V) = V$ and
+\[
+ \rad(V\!/U) \subseteq V\!/U = \rad(V)/U.
+\]
+If $V$ has maximal submodules, then let $W$ be an arbitrary maximal submodule of $V$. Since $U \subseteq \rad(V) \subseteq W$ we know from \textbf{\ref{lem:cool} \ref{lem:bildmax})} that $W\!/U$ is maximal in $V\!/U$ and $\pi^{-1}(W\!/U) = W$. So $\rad(V\!/U) \subseteq W\!/U$ and thus
+\[
+ \pi^{-1}(\rad(V\!/U)) \subseteq \pi^{-1}(W\!/U) = W.
+\]
+Because $W$ is arbitrary it follows that
+\[
+ \pi^{-1}(\rad(V\!/U)) \subseteq \rad(V)
+\]
+and from this it follows that
+\[
+ \rad(V\!/U) = \pi(\pi^{-1}(\rad(V\!/U))) \subseteq \pi(\rad(V)) = \rad(V)/U.
+\]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106,7 +216,7 @@ Assume that $S \subseteq V$ is simple and $U \subseteq W$ is maximal with $S \ns
 
 
 \subsection{}
-$0 \subseteq K[T]$ is the only small submodule in $(K[T],T\cdot)$: Let $0 \subsetneq U \subseteq K[T]$ be a small submodule. We know that $U = (a)$ for some $a \in K[T]$; because $K[T]$ has to be nonzero and proper we know that $\deg a \geq 1$. We find an irreducible polynomial $p \in K[T]$ with $p \nmid a$. So $(a) + (p) = (1) = K[T]$. Because $(p)$ proper submodule of $(K[T],T\cdot)$ this shows that $U$ is not small.
+$0 \subseteq K[T]$ is the only small submodule of $(K[T],T\cdot)$: Let $0 \subsetneq U \subseteq K[T]$ be a small submodule. We know that $U = (a)$ for some $a \in K[T]$; because $K[T]$ has to be nonzero and proper we know that $\deg a \geq 1$. We find an irreducible polynomial $p \in K[T]$ with $p \nmid a$. So $(a) + (p) = (1) = K[T]$. Because $(p)$ proper submodule of $(K[T],T\cdot)$ this shows that $U$ is not small.
 
 In $N(\infty)$ all nonzero submodules are small: For all nonzero submodules $V, V' \subseteq N(\infty)$ we have $N(1) \subseteq V, V'$ as a nonzero submodule, so $V \cap V' \supseteq N(1)$ is nonzero.
 
