@@ -16,6 +16,11 @@
 \newtheorem*{ia}{Base case}
 \newtheorem*{is}{Induction step}
 
+\newcommand{\N}{\operatorname{\mathbb{N}}}
+\newcommand{\Z}{\operatorname{\mathbb{Z}}}
+\newcommand{\Q}{\operatorname{\mathbb{Q}}}
+\newcommand{\R}{\operatorname{\mathbb{R}}}
+\newcommand{\C}{\operatorname{\mathbb{C}}}
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\img}{\operatorname{im}}
@@ -28,6 +33,7 @@
 
 \addtocounter{section}{12}
 \renewcommand{\thesection}{Exercise \arabic{section}:}
+\renewcommand{\thesubsection}{(\roman{subsection})}
 
 \setromanfont[Mapping=tex-text]{Linux Libertine O}
 % \setsansfont[Mapping=tex-text]{DejaVu Sans}
@@ -99,7 +105,20 @@ Assume that $S \subseteq V$ is simple and $U \subseteq W$ is maximal with $S \ns
 \section{}
 
 
+\subsection{}
+$0 \subseteq K[T]$ is the only small submodule in $(K[T],T\cdot)$: Let $0 \subsetneq U \subseteq K[T]$ be a small submodule. We know that $U = (a)$ for some $a \in K[T]$; because $K[T]$ has to be nonzero and proper we know that $\deg a \geq 1$. We find an irreducible polynomial $p \in K[T]$ with $p \nmid a$. So $(a) + (p) = (1) = K[T]$. Because $(p)$ proper submodule of $(K[T],T\cdot)$ this shows that $U$ is not small.
 
+In $N(\infty)$ all nonzero submodules are small: For all nonzero submodules $V, V' \subseteq N(\infty)$ we have $N(1) \subseteq V, V'$ as a nonzero submodule, so $V \cap V' \supseteq N(1)$ is nonzero.
+
+\subsection{}
+Both modules are uniform:
+
+Let $U, U' \subseteq K[T]$ be nonzero submodules. We know that $U = (a)$ and $U' = (b)$ for $a,b \in K[T] \setminus \{0\}$. Thus $(ab)$ is a nonzero submodule of both $U$ and $U'$ (because $K[T]$ has no zero divisors), so $U \cap U' \supseteq (ab)$ is nonzero.
+
+Let $V, V' \subseteq N(\infty)$ be nonzero submodules. We know that $V = N(i)$ and $V' = N(j)$ for $i,j \in \N \setminus \{0\}$. So $V \cap V' \supseteq N(1)$ is nonzero.
+
+\subsection{}
+Let $V = N(\infty)$ and $U := N(1) \subseteq V$. $U$ is large in $V$: For every nonzero submodule $U' \subseteq V$ we have $N(1) \subseteq U'$, so $U \cap U' \supseteq N(1)$ is nonzero. $U$ is also small: For every proper submodule $U'' \subseteq V$ we have $U'' = N(i)$ for some $i \in \N$. So $U + U'' = N(1) + N(i) = N(\max{1,i})$ is a proper submodule of $V$.
 
 
 
