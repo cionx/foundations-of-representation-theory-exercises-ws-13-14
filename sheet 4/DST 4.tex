@@ -53,6 +53,47 @@
 
 
 \section{}
+A submodule $S \subseteq N(\lambda)$ is simple if and only if it is of the form
+\[
+ S = \gen{\sum_{i=1}^t \mu_i e_{i 1}}
+\]
+with $\mu_1, \ldots, \mu_t \in K$ and $\mu_j \neq 0$ for at least one $j \in \{1,\ldots,n\}$:
+Since
+\[
+ \phi\left(\sum_{i=1}^t \mu_i e_{i 1}\right) = \sum_{i=1}^t \mu_i \phi(e_{i 1}) = 0
+\]
+and $\sum_{i=1}^t \mu_i e_{i 1} \neq 0$ these modules are $1$-dimensional submodules, which are always simple. If $S \subseteq N(\lambda)$ is simple then $S$ is nonzero and for every $v \in S\setminus\{0\}$ the subspace $\gen{v} \subseteq S$ is a nonzero submodule of $S$, so $S = \gen{v}$.
+Thus we get
+\[
+ \soc(N(\lambda))
+ = \sum_{\substack{S \subseteq N(\lambda) \\ S \text{ semisimple}}} S
+ = \sum_{\substack{S \subseteq N(\lambda) \\ S \text{ simple}}} S
+ = \gen{e_{1 1}, e_{2 1}, \ldots, e_{t 1}}.
+\]
+
+To determine $\rad(N(\lambda))$ we notice that for every $s \in \{1, \ldots, t\}$ the subspace
+\[
+ M_s := \gen{ \left(\bigcup_{i=1}^t \bigcup_{j=1}^{\lambda_i} \{e_{ij}\}\right) \setminus \{e_{s \lambda_s}\} }
+\]
+is a maximal submodule of $N(\lambda)$:
+
+It is clear that $M_s$ is a submodule. To show that $M_s$ is maximal in $N(\lambda)$ we notice that for a submodule $M$ of $N(\lambda)$ with $M_s \subsetneq M \subseteq N(\lambda)$ there exists $v \in M$ and $\mu_{ij} \in K$, $i=1,\ldots,t$, $j=1,\ldots,\lambda_i$, with $\mu_{s \lambda_s} = 1$ such that
+\[
+ v = \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij},
+\]
+because otherwise $v \in M_s$ for all $v \in M$ and thus $M \subseteq M_s$. This implies that $e_{ij} \in M$ for $i=1,\ldots,t$ and $j=1,\ldots,\lambda_i$. So $M = N(\lambda)$.
+
+Because $M_s$ is maximal for $s = 1,\ldots,t$ we find that
+\[
+ \rad(N(\lambda))
+ \subseteq \bigcap_{s=1}^t M_s
+ = \gen{ \bigcup_{i=1}^t \bigcup_{j=1}^{\lambda_i-1} \{e_{ij}\} } =: r_0.
+\]
+We also find that $r_0 \supseteq \rad(N(\lambda))$: If $W \subsetneq N(\lambda)$ is a maximal submodule with $r_0 \nsubseteq W$ then there is some $s \in \{1,\ldots,t\}$ with $e_{s (\lambda_s-2)} \not\in W$, which also means that $e_{s (\lambda_s-1)} \not\in W$, because $\phi(e_{s (\lambda_s-1)}) = e_{s (\lambda_s-2)}$. Because $e_{s(\lambda_s-2)} \not \in W$ we find that $\gen{e_{s(\lambda_s-2)}} \cap W = 0$ and that $W$ is a proper submodule of $W + \gen{e_{s(\lambda_s-2)}}$, so $W + \gen{e_{s(\lambda_s-2)}} = N(\lambda)$ because $W$ is maximal. So $N(\lambda) = W \oplus \gen{e_{s(\lambda_s-2)}}$. So there are $\mu \in K$ and $v \in W$, $v = \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij}$ with $\mu_{ij} \in K$ and $\mu_{s (\lambda-2)} = 0$, such that
+\[
+ e_{s (\lambda-1)} = \mu e_{s (\lambda-2)} + v = \mu e_{s (\lambda-2)} + \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij}.
+\]
+Because the $e_{ij}$ are linear independent we get $\mu = 0$, so $e_{s (\lambda-1)} = v \in W$, which is a contradiction to $e_{s (\lambda-1)} \not \in W$. So for every maximal submodule $W \subsetneq N(\lambda)$ we have $r_0 \subseteq W$, so $r_0 \subseteq \rad(V)$.
 
 
 
