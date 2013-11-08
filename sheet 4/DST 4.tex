@@ -62,7 +62,7 @@ Since
 \[
  \phi\left(\sum_{i=1}^t \mu_i e_{i 1}\right) = \sum_{i=1}^t \mu_i \phi(e_{i 1}) = 0
 \]
-and $\sum_{i=1}^t \mu_i e_{i 1} \neq 0$ these modules are $1$-dimensional submodules, which are always simple. If $S \subseteq N(\lambda)$ is simple then $S$ is nonzero and for every $v \in S\setminus\{0\}$ the subspace $\gen{v} \subseteq S$ is a nonzero submodule of $S$, so $S = \gen{v}$.
+and $\sum_{i=1}^t \mu_i e_{i 1} \neq 0$ these subspaces are $1$-dimensional submodules, which are always simple. If $S \subseteq N(\lambda)$ is simple then $S$ is nonzero, and because $\phi$ is nilpotent there is $v \in S\setminus\{0\}$ with $\phi(v) = 0$. So the subspace $\gen{v} \subseteq S$ is a nonzero submodule of $S$, so $S = \gen{v}$.
 Thus we get
 \[
  \soc(N(\lambda))
@@ -77,11 +77,11 @@ To determine $\rad(N(\lambda))$ we notice that for every $s \in \{1, \ldots, t\}
 \]
 is a maximal submodule of $N(\lambda)$:
 
-It is clear that $M_s$ is a submodule. To show that $M_s$ is maximal in $N(\lambda)$ we notice that for a submodule $M$ of $N(\lambda)$ with $M_s \subsetneq M \subseteq N(\lambda)$ there exists $v \in M$ and $\mu_{ij} \in K$, $i=1,\ldots,t$, $j=1,\ldots,\lambda_i$, with $\mu_{s \lambda_s} = 1$ such that
+It is clear that $M_s$ is a submodule. To show that $M_s$ is maximal in $N(\lambda)$ we notice that for a submodule $M$ of $N(\lambda)$ with $M_s \subsetneq M \subseteq N(\lambda)$ there exists $v \in M$ and $\mu_{ij} \in K$ for $i=1,\ldots,t$, $j=1,\ldots,\lambda_i$ with $\mu_{s \lambda_s} = 1$ such that
 \[
  v = \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij},
 \]
-because otherwise $v \in M_s$ for all $v \in M$ and thus $M \subseteq M_s$. This implies that $e_{ij} \in M$ for $i=1,\ldots,t$ and $j=1,\ldots,\lambda_i$. So $M = N(\lambda)$.
+because otherwise $v \in M_s$ for all $v \in M$ and thus $M \subseteq M_s$. Together with $M_s \subsetneq M$ this implies that $e_{ij} \in M$ for $i=1,\ldots,t$ and $j=1,\ldots,\lambda_i$. So $M = N(\lambda)$.
 
 Because $M_s$ is maximal for $s = 1,\ldots,t$ we find that
 \[
@@ -89,11 +89,21 @@ Because $M_s$ is maximal for $s = 1,\ldots,t$ we find that
  \subseteq \bigcap_{s=1}^t M_s
  = \gen{ \bigcup_{i=1}^t \bigcup_{j=1}^{\lambda_i-1} \{e_{ij}\} } =: r_0.
 \]
-We also find that $r_0 \supseteq \rad(N(\lambda))$: If $W \subsetneq N(\lambda)$ is a maximal submodule with $r_0 \nsubseteq W$ then there is some $s \in \{1,\ldots,t\}$ with $e_{s (\lambda_s-2)} \not\in W$, which also means that $e_{s (\lambda_s-1)} \not\in W$, because $\phi(e_{s (\lambda_s-1)}) = e_{s (\lambda_s-2)}$. Because $e_{s(\lambda_s-2)} \not \in W$ we find that $\gen{e_{s(\lambda_s-2)}} \cap W = 0$ and that $W$ is a proper submodule of $W + \gen{e_{s(\lambda_s-2)}}$, so $W + \gen{e_{s(\lambda_s-2)}} = N(\lambda)$ because $W$ is maximal. So $N(\lambda) = W \oplus \gen{e_{s(\lambda_s-2)}}$. So there are $\mu \in K$ and $v \in W$, $v = \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij}$ with $\mu_{ij} \in K$ and $\mu_{s (\lambda-2)} = 0$, such that
+We also find that $r_0 \supseteq \rad(N(\lambda))$: If $W \subsetneq N(\lambda)$ is a maximal submodule with $r_0 \nsubseteq W$ then there is some $s \in \{1,\ldots,t\}$ with $e_{s (\lambda_s-2)} \not\in W$, which also means that $e_{s (\lambda_s-1)} \not\in W$, because
+\[
+ \phi(e_{s (\lambda_s-1)}) = e_{s (\lambda_s-2)}.
+\]
+
+Because $W$ is maximal in $N(\lambda)$ the factor module $N(\lambda)/W$ is simple, and because $N(\lambda)/W \cong N(\lambda')$ for some $\lambda' = (\lambda'_1, \ldots, \lambda'_t)$ with $\lambda'_i \leq \lambda_i$ for $i=1,\ldots,t$ this means that $N(\lambda)/W$ is one-dimensional. So $W$ has dimension
+\begin{equation}\label{eq:wdim}
+ \dim N(\lambda)-1 = \left(\sum_{i=1}^t \lambda_i\right)-1.
+\end{equation}
+
+Because $e_{s(\lambda_s-2)} \not \in W$ we find that $\gen{e_{s(\lambda_s-2)}} \cap W = 0$ and that $W$ is a proper subspace of $W + \gen{e_{s(\lambda_s-2)}}$. Therefore \eqref{eq:wdim} implies that $W + \gen{e_{s(\lambda_s-2)}} = N(\lambda)$. So $N(\lambda) = W \oplus \gen{e_{s(\lambda_s-2)}}$ (as vector spaces). So there are $\mu \in K$ and $v \in W$, $v = \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij}$ with $\mu_{ij} \in K$ and $\mu_{s (\lambda-2)} = 0$, such that
 \[
  e_{s (\lambda-1)} = \mu e_{s (\lambda-2)} + v = \mu e_{s (\lambda-2)} + \sum_{i=1}^t \sum_{j=1}^{\lambda_i} \mu_{ij} e_{ij}.
 \]
-Because the $e_{ij}$ are linear independent we get $\mu = 0$, so $e_{s (\lambda-1)} = v \in W$, which is a contradiction to $e_{s (\lambda-1)} \not \in W$. So for every maximal submodule $W \subsetneq N(\lambda)$ we have $r_0 \subseteq W$, so $r_0 \subseteq \rad(V)$.
+Because the $e_{ij}$ are linear independent we get $\mu = 0$, so $e_{s (\lambda-1)} = v \in W$, which is a contradiction to $e_{s (\lambda-1)} \not \in W$. So for every maximal submodule $W \subsetneq N(\lambda)$ we have $r_0 \subseteq W$, so $r_0 \subseteq \rad(N(\lambda))$.
 
 
 
@@ -106,7 +116,7 @@ Because the $e_{ij}$ are linear independent we get $\mu = 0$, so $e_{s (\lambda-
  Let $V$ and $W$ be modules and $f : V \rightarrow W$ a module homomorphism. Then the following hold:
  \begin{enumerate}[i)]
   \item For every submodule $U \subseteq W$ the preimage $f^{-1}(U)$ is a submodule of $V$. \label{lem:urbild}
-  \item If $U \subseteq V$ is a submodule, $\pi : V \twoheadrightarrow V\!/U$ the canonical projection and $W \subseteq V\!/U$ a maximal submodule, then $\pi^{-1}(W)$ is a maximal submodule of $V$. \label{lem:urbildmax}
+  \item If $U \subseteq V$ is a submodule, $\pi : V \twoheadrightarrow V\!/U$ the canonical projection and $W \subseteq V\!/U$ a maximal submodule, then the preimage $\pi^{-1}(W)$ is a maximal submodule of $V$.\label{lem:urbildmax}
   \item If $W \subseteq V$ is maximal in $V$ and $U \subseteq W$ is a submodule then $W\!/U$ is maximal in $V\!/U$ and $\pi^{-1}(W\!/U) = W$. \label{lem:bildmax}
  \end{enumerate}
 \end{lem}
@@ -206,15 +216,6 @@ and from this it follows that
 
 
 
-
-
-
-
-
-
-
-
-
 \section{}
 
 \subsection*{$\neg (ii) \Rightarrow \neg (i)$}
@@ -228,13 +229,13 @@ With this we find that
 \]
 because $U$ is simple and $C$ is maximal in $V$. Because $U$ nonzero with $U \cap C = 0$, this implies that $\soc(V) \nsubseteq \rad(V)$.
 \begin{proof}[Proof of the claim]
- Let $C' \subseteq V$ be a submodule with $C \subseteq C' \subseteq V$. Let $C'' := C' \cap U$. Because $V$ is simple we know that $C'' = 0$ or $C'' = U$. If $C'' = 0$ then
+ Let $C' \subseteq V$ be a submodule with $C \subseteq C' \subseteq V$. Let $C'' := C'\!\cap U$. Because $U$ is simple we know that $C'' = 0$ or $C'' = U$. If $C'' = 0$ then by using modularity and $C \subseteq C'$ we find
  \[
   C = C + C'' = C + (U \cap C') = (C + U) \cap C' = V \cap C' = C'.
  \]
  If $C'' = U$ we get
  \[
-  U = C'' = C' \cap U, \text{ so } V = U \cap C \subseteq C', \text{ so } C' = V. \qedhere
+  U = C'' = C' \cap U, \text{ so } V = U \oplus C \subseteq U + C' = C', \text{ so } C' = V. \qedhere
  \]
 \end{proof}
 
@@ -242,8 +243,9 @@ because $U$ is simple and $C$ is maximal in $V$. Because $U$ nonzero with $U \ca
 
 
 \subsection*{$(ii) \Rightarrow (i)$}
-Assume that $V$ does not have a simple direct summand. If $V$ has no maximal submodule, then $\soc(V) \subseteq \rad(V) = V$ is trivial.
-If $V$ does have at least one maximal submodule it is easy to see that
+Assume that $V$ does not have a simple direct summand. If $V$ has no maximal submodule, then $\soc(V) \subseteq \rad(V) = V$.
+
+If $V$ does have at least one maximal submodule then by definition
 \[
  \soc(V) \subseteq \rad(V) \Leftrightarrow S \subseteq U \text{ for all } S \subseteq V \text{ simple and all } U \subseteq V \text{ maximal}.
 \]
@@ -257,7 +259,7 @@ Assume that $S \subseteq V$ is simple and $U \subseteq W$ is maximal with $S \ns
 
 
 \subsection{}
-$0 \subseteq K[T]$ is the only small submodule of $(K[T],T\cdot)$: Let $0 \subsetneq U \subseteq K[T]$ be a small submodule. We know that $U = (a)$ for some $a \in K[T]$; because $K[T]$ has to be nonzero and proper we know that $\deg a \geq 1$. We find an irreducible polynomial $p \in K[T]$ with $p \nmid a$. So $(a) + (p) = (1) = K[T]$. Because $(p)$ proper submodule of $(K[T],T\cdot)$ this shows that $U$ is not small.
+$0 \subseteq K[T]$ is the only small submodule of $(K[T],T\cdot)$: Let $0 \subsetneq U \subseteq K[T]$ be a small submodule. We know that $U = (a)$ for some $a \in K[T]$; because $U$ has to be nonzero and proper we know that $\deg a \geq 1$. We find an irreducible polynomial $p \in K[T]$ with $p \nmid a$. So $(a) + (p) = (1) = K[T]$. Because $(p)$ proper submodule of $(K[T],T\cdot)$ this shows that $U$ is not small.
 
 In $N(\infty)$ all nonzero submodules are small: For all nonzero submodules $V, V' \subseteq N(\infty)$ we have $N(1) \subseteq V, V'$ as a nonzero submodule, so $V \cap V' \supseteq N(1)$ is nonzero.
 
@@ -269,7 +271,7 @@ Let $U, U' \subseteq K[T]$ be nonzero submodules. We know that $U = (a)$ and $U'
 Let $V, V' \subseteq N(\infty)$ be nonzero submodules. We know that $V = N(i)$ and $V' = N(j)$ for $i,j \in \N \setminus \{0\}$. So $V \cap V' \supseteq N(1)$ is nonzero.
 
 \subsection{}
-Let $V = N(\infty)$ and $U := N(1) \subseteq V$. $U$ is large in $V$: For every nonzero submodule $U' \subseteq V$ we have $N(1) \subseteq U'$, so $U \cap U' \supseteq N(1)$ is nonzero. $U$ is also small: For every proper submodule $U'' \subseteq V$ we have $U'' = N(i)$ for some $i \in \N$. So $U + U'' = N(1) + N(i) = N(\max{1,i})$ is a proper submodule of $V$.
+Let $V = N(\infty)$ and $U := N(1) \subseteq V$. $U$ is large in $V$: For every nonzero submodule $U' \subseteq V$ we have $N(1) \subseteq U'$, so $U \cap U' \supseteq N(1)$ is nonzero. $U$ is also small: For every proper submodule $U'' \subseteq V$ we have $U'' = N(i)$ for some $i \in \N$. So $U + U'' = N(1) + N(i) = N(\max\{1,i\})$ is a proper submodule of $V$.
 
 
 
