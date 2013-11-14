@@ -28,10 +28,12 @@
 \newcommand{\rad}{\operatorname{rad}}
 \newcommand{\kchar}{\operatorname{char}}
 \newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\operatorname{id}}
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
-\addtocounter{section}{12}
+\addtocounter{section}{16}
+
 \renewcommand{\thesection}{Exercise \arabic{section}:}
 \renewcommand{\thesubsection}{(\roman{subsection})}
 
@@ -47,6 +49,37 @@
 
 \begin{document}
 \maketitle
+
+
+
+
+
+\section{}
+
+
+
+
+
+\section{}
+
+
+
+
+
+\section{}
+We can look at the $1$-module $V := N(\infty) \times (K, \id_K)$, the endomorphism being $\psi = \phi \times \id_K$.
+
+It is obvious that $W := N(\infty) \times 0$ is a proper submodule of $V$. $W$ is also maximal in $V$ because $V / W \cong (K, \id_K)$ is simple.
+
+$W$ is the only maximal submodule of $V$, because every maximal submodule $W' \subseteq V$ has to contain $W$: Assume $W' \subsetneq V$ is maximal with $W \subsetneq W'$. Then there is some $v = (\sum_{i=1}^n \mu_i e_i, 0) \in W$, $\mu_n \neq 0$, with $v \not\in W'$. In particular $(e_n,0), (e_{n+1},0),\ldots \not \in W'$, because otherwise $(e_n,0), (e_{n-1},0) = \psi((e_n,0)), \ldots, e_1 = \psi^{n-1}((e_n,0)) \in W'$ and thus $v \in W'$. So $W' \subsetneq W'+U((e_n,0)) \subsetneq V$, which contradicts the maximality of $W$.
+
+Even though $W$ is the only maximal submodule in $V$ we find that $V$ is not uniform, because the proper submodule $0 \times K$ is not contained in $W$.
+
+
+
+
+
+\section{}
 
 
 
