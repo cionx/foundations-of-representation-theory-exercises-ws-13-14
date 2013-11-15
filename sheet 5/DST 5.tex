@@ -82,6 +82,77 @@ Even though $W$ is the only maximal submodule in $V$ we find that $V$ is not uni
 \section{}
 
 
+\begin{rem}\label{rem: all in maximal}
+ Let $V$ be a module of finite length. Then every proper submodule $U \subsetneq V$ is contained in some maximal submodule $W \subsetneq V$.
+\end{rem}
+\begin{proof}
+ Because $V$ is of finite length the same holds for $U$.
+ Set $U_0 := U$. If $U_i$ is defined and not maximal in $V$, define $U_{i+1}$ as some submodule of $V$ which contains $U_i$ as a proper submodule. Because $U_i \subsetneq U_{i+1}$ we get $l(U_i) < l(U_{i+1})$.
+ Because $V$ is of finite length the chain
+ \[
+  U = U_0 \subsetneq U_1 \subsetneq U_2 \subsetneq \ldots
+ \]
+ only contains finitely many submodules. Thus the maximal submodule $U_n$ of this chain has to be a maximal submodule of $V$ containing $U$.
+\end{proof}
+
+\begin{rem}\label{rem: simple len local}
+ A module $V$ is simple if and only if $l(V) = 1$. A semisimple module is local if and only if it is simple. In particular every simple module is local.
+\end{rem}
+\begin{proof}
+ $V$ is simple if and only if $V/0$ is simple, which is equivalent to the filtration $0 = U_0 \subseteq U_1 = V$ being a composition series of $V$, which is then again equivalent to $l(V)=1$.
+ 
+ Let $V$ be a semisimple module.
+ Assume $V$ is simple. Because $0$ is a maximal submodule of $V$ which contains every proper submodule of $V$, $V$ is local.
+ Assume that $V$ is not simple and local. Then we can write $V = \bigoplus_{i \in I} V_i$ with $V_i$ being a simple submodule of $V$, as well as a maximal submodule $W$ of $V$ which contains every proper submodule of $V$. Because $V$ is not simple the $V_i$ are proper submodules of $V$, so $V_i \in W$ for all $i \in I$. But this implies that $V = \bigoplus_{i \in I} V_i \subseteq W$, so $V = W$, which contradicts the maximality of $W$.
+\end{proof}
+
+
+\subsection{}
+Let $V$ be a module of finite length.
+The first statement can be shown by induction over $n := l(V)$.
+\begin{ia}
+ Let $n=0$. Then $V = 0$. Thus $V$ has no local submodules, and $V = 0$ is the corresponding empty sum.
+\end{ia}
+\begin{is}
+ Let $n \geq 1$. $0$ is a proper submodule of $V$ because $V$ is nonzero. It follows from remark \ref{rem: all in maximal} that $V$ contains some maximal submodule $W$.
+ 
+ If $W$ is the only maximal submodule of $V$ then it follows from remark \ref{rem: all in maximal} that every proper submodule of $V$ is contained and $W$. So $V$ is local.
+ 
+ Otherwise let $(W_i)_{i \in I}$ be the maximal submodules of $V$. Because the $W_i$ are proper submodules of $V$ we get $l(W_i) < l(V)$. By using the induction hypothesis we can write every $W_i$ as the sum of local submodules $L^i_j \subseteq W_i$. Because there are at least two different $W_i$ we find that $V = \sum_{i \in I} W_i$. It is obvious that the $L^i_j$ are also local submodules of $V$. Thus $V$ is the sum of the $L^i_j$.
+\end{is}
+
+
+\subsection{}
+Let $V$ be a module of length $n < \infty$ and assume that $V$ is semisimple. Assume that we get write $V$ as $V = \sum_{i=1}^{n-1} L_i$ where $L_i \subseteq V$ is local. Because
+\[
+ n = l(V) = l\left(\sum_{i=1}^{n-1} L_i\right) \leq \sum_{i=1}^{n-1} l(L_i)
+\]
+at least one of the $L_i$ has to be of length greater than $1$. W.l.o.g. we can assume that $l(L_1) > 2$. Because $V$ is semisimple it follows that $L_1$ is semisimple. From remark \ref{rem: simple len local} it follows that $L_1$ is simple, which contradicts $l(L_1) > 2$ according to remark \ref{rem: simple len local}. So $V$ cannot be written as a sum of $n-1$ local submoduls.
+
+The other implication, namely that if $V$ is not semisimple it can be written as a sum of $n-1$ local submoduls, is shown by induction; this starts by $n=2$, because if $n=1$ then $V$ is simple by remark \ref{rem: simple len local}.
+\begin{ia}
+ Let $n=2$. Let $0 = U_0 \subseteq U_1 \subseteq U_2 = V$ be a composition series of $V$. $U_1$ is maximal in $V$ because $V/U_1$ is simple. $U_1$ is the nonzero proper submodule of $V$: If $W$ is a different nonzero proper submodule of $V$, then $U_1$ and $W$ are both nonzero and of length 1 with $U_1 + W = V$ and $U_1 \cap W = 0$. By remark \ref{rem: simple len local} it follows that $V = U_1 \oplus W$ is the direct sum of simple submodles, which contradicts the assumption that $V$ is not semisimple. Because $U_1$ is the only nonzero proper submodule of $V$ it follows that every proper submodule is contained in $U_1$. So $V$ is local.
+\end{ia}
+\begin{is}
+ Let $n \geq 3$.
+ We use case differentiation:
+ 
+ If $V$ is not indecomposible we can write $V = \bigoplus_{i=1}^m U_i$, $m \geq 2$, as the direct sum of finitely many indecomposible submodules $U_i$ of $V$, because $V$ is of finite length. Because $V$ is not simple at least one of the $U_i$ has to be not simple. W.l.o.g. we can assume that $U_1, \ldots, U_k$ are simple and $U_{k+1}, \ldots, U_m$ are not simple. Because $U_{k+1}, \ldots, U_m$ are indecomposible and not simple they are also not semisimple. Because the $U_i$ are proper submodules of $V$ we find that $l(U_i) < l(V)$. So by using the induction hypothesis we can write $U_i$, $k+1 \leq i \leq m$, as the sum $U_i = \sum_{j=1}^{l(U_i)-1} L^i_j$ of $l(U_i)-1$ local submodules. Thus we can write
+ \[
+  V = \bigoplus_{i=1}^m U_i = \bigoplus_{i=1}^k U_i + \bigoplus_{i=k+1}^m \sum_{j=1}^{l(U_i)-1} L^i_j
+ \]
+ as the sum of at most $n-1$ local submodules of $V$. To write $V$ as the sum of exactly $n-1$ local submoduls we can just use one of the summands more often (note that it is not stated that the local submodules have to be pairwise different on the exercise sheet).
+ 
+ If $V$ is indecomposible then by remark \ref{rem: all in maximal} $V$ does contain at least one maximal submodule. If $V$ does contain exactly one maximal submodule $V$ is local itself and can be written as $V = \sum_{i=1}^{n-1} V$. If $V$ does contain more than one maximal submodule let $W_1$ and $W_2$ be two of them. $W_1$ Because $W_1$ and $W_2$ are proper submodules of $V$ we find $l(W_1), l(W_2) < l(V)$, so by using the induction hypothesis we can write $W_1 = \sum_{i=1}^{l(W_1)-1} L^1_i$ and $W_2 = \sum_{i=1}^{l(W_2)-1} L^2_i$ as the sum of local submodules. Thus we can write $V = W_1 + W_2$ as the sum of 
+\end{is}
+
+
+
+
+
+
+
+
 
 
 
