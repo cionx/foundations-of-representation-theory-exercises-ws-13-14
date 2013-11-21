@@ -7,6 +7,7 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{paralist}
+\usepackage{leftidx}
 
 \theoremstyle{definition}
 \newtheorem{own}{}
@@ -31,6 +32,7 @@
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\bvect}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
 \addtocounter{section}{20}
 
@@ -84,6 +86,130 @@ and thus
 \[
  \End(V) / J(\End(V)) = \End(V) / \ker \varphi \cong \img \varphi = \End(S).
 \]
+
+
+
+
+
+\section{}
+
+
+\subsection{}
+\begin{rem}\label{rem: endomorphisms K[T]}
+ Every endomorphism $h$ of the module $V = (K[T], T \cdot)$ is of the form
+ \[
+  h : f \mapsto p \cdot f
+ \]
+ for some polynomial $p \in K[T]$, and each such map is an endomorphism von $V$.
+\end{rem}
+\begin{proof}
+ It is obvious that every such map is an module endomorphism of $V$. To show that every endomorphism is of this form we denote $T \cdot$ as $\phi : f \mapsto T \cdot f$ and $p := h(1)$. Because $h$ is a module homomorphism, it follows that for all $\sum_{i=0}^n a_i T^i \in K[T]$
+ \begin{align*}
+  h\left( \sum_{i=0}^n a_i T^i \right)
+  &= h\left( \sum_{i=0}^n a_i \phi^i(1) \right)
+  = \sum_{i=0}^n a_i \phi^i (h(1)) \\
+  &= \sum_{i=0}^n a_i \phi^i(p)
+  = \sum_{i=0}^n a_i T^i p
+  = p \sum_{i=0}^n a_i T^i.
+ \end{align*}
+\end{proof}
+
+We assume that the greatest common divisor of some polynomial $p \in K[T]$ and $0 \in K[T]$ is defined as $p$, because otherwise the statement does not hold true. In this case the direct summands $V \oplus 0$ and $0 \oplus V$ are counterexamples.
+
+Let $U$ be a direct summand of $V \oplus V$ with $U \not\in \{0, V \oplus V\}$. We know that $U$ is the kernel of some idempotent endomorphism of $V$. Let $h \in \End(V)$ be idempotent with $\ker h = U$. We know that $h$ can be uniquely written as
+\[
+ h =
+ \begin{bmatrix}
+  h_1 & h_2 \\
+  h_3 & h_4
+ \end{bmatrix}
+\]
+with $h_1, h_2, h_3, h_4 \in \End(V)$. From remark \ref{rem: endomorphisms K[T]} it follows that there exists polynomials $p_1, p_2, p_3, p_4 \in K[T]$ such that
+\[
+ h =
+ \begin{bmatrix}
+  p_1 & p_2 \\
+  p_3 & p_4
+ \end{bmatrix}.
+\]
+We get that
+\[
+ \ker h = \left\{ \bvect{p\\q} \in V \oplus V : 
+ \begin{bmatrix}
+  p_1 & p_2 \\
+  p_3 & p_4
+ \end{bmatrix}
+ \bvect{p\\q}
+ = 0.
+ \right\}
+\]
+
+We notice that the matrix
+\[
+ \begin{bmatrix}
+  p_1 & p_2 \\
+  p_3 & p_4
+ \end{bmatrix}
+\]
+also describes an idempotent vector space endomorphism $h'$ of $K(X)^2$ with respect to the canonical basis, where $K(T)$ is the field of rational functions over $K$. It is clear that
+\[
+ \ker h = \ker h' \cap K[T],
+\]
+and that $\ker h'$ is a subspace of $K(T)^2$. So to show that $U$ is of the form $U_{f,g}$ for some polynomials $f,g$ with greatest common divisor $1$, it is enough to show that $\ker h'$ has a basis $\ltrans{\bvect{f & g}}$ with such polynomials $f$ and $g$. Because $U \not\in \{0, V \oplus V\}$ we know that $h$ is non-zero and no isomorphism, so $\ker h'$ is one-dimensional. Let $b = \ltrans{\bvect{f & g}}$ be a basis vector of $\ker h'$. We can assume that $f$ and $g$ are polynomials, because otherwise we can multiply $b$ by some non-zero scalar $r \in K[T] \subseteq K(T)$ such that $rf$ and $rg$ are polynomials. We can also assume that the greatest common divisor of $f$ and $g$ is $1$, because otherwise we can multiply $b$ with some scalar $r' \in K(T)$ such that the greatest common divisor of $r'f$ and $r'g$ is $1$. Because $\ltrans{\bvect{f & g}}$ is a basis vector of $\ker h$ it follows that
+\[
+ U = \ker h = \ker h' \cap K[T] = \{(hf, hg) : h \in K[T]\} = U_{f,g}.
+\]
+
+Now we show the $U_{f,g}$ are direct summands: It is clear that $U_{f,g}$ is a submodule of $V \oplus V$ for alle $f,g \in K[T]$. Assume that the greatest common divisor of $f$ and $g$ is $1$. If $f=0$, then it follows that $g=1$, so
+\[
+ U_{f,g} = 0 \oplus V = \ker \bvect{1&0\\1&0},
+\]
+and if $g=0$ it follows that $f=1$, so
+\[
+ U_{f,g} = V \oplus 0 = \ker \bvect{0&1\\0&1}.
+\]
+In both cases the endomorphisms are obvioulsy idempotent.
+If $f,g \neq 0$ we know from linear algebra that we can find polynomials $r,s\in K[T]$ with $rf + sg = 1$. Then the endomorphism of $V \oplus V$ of the form
+\[
+ h = 
+ \begin{bmatrix}
+   sg & -sf \\
+  -rg &  rf
+ \end{bmatrix}
+\]
+with
+\begin{align*}
+ \begin{bmatrix}
+   sg & -sf \\
+  -rg &  rf
+ \end{bmatrix}^2
+ &=
+ \begin{bmatrix}
+  rsfg + s^2g^2 & -rsf^2-s^2fg \\
+ -r^2fg - rsg^2 & r^2 f^2 + rsfg
+ \end{bmatrix} \\
+ &=
+ \begin{bmatrix}
+  sg(rf+sg) & -sf(rf+sg) \\
+ -rg(rf+sg) & rf(rf+sg)
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+   sg & -sf \\
+  -rg &  rf
+ \end{bmatrix}
+\end{align*}
+is idempotent, and thus
+\[
+ \ker h = U_{f,g}
+\]
+is a direct summand of $V \oplus V$.
+
+
+\subsection{}
+We know that $U_{T,T-1}$ is a direct summand of $V \oplus V$, because the greatest common divisor of $T$ and $T-1$ is $1$. Because $U_{T,T-1} \neq 0$ and $U_{T,T-1} \neq V \oplus V$ we know that neither $0$ nor $V \oplus V$ is a direct complement of $U_{T,T-1}$ in $V \oplus V$. $U_{1,0}$ and $U_{0,1}$ are also no direct complements of $U_{T,T-1}$ in $V \oplus V$, because $(0,1) \not\in U_{T,T-1} + U_{1,0}$ and $(1,0) \not\in U_{T,T-1} + U_{0,1}$.
+
+
 
 
 
