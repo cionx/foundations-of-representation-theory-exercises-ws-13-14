@@ -23,7 +23,7 @@
 \newcommand{\C}{\operatorname{\mathbb{C}}}
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\img}{\operatorname{im}}
+\newcommand{\img}{\operatorname{img}}
 \newcommand{\soc}{\operatorname{soc}}
 \newcommand{\rad}{\operatorname{rad}}
 \newcommand{\kchar}{\operatorname{char}}
@@ -55,6 +55,42 @@
 
 
 \section{}
+We will assume that $V$ is an artinian module.
+$V$ is uniform, because $S \neq 0$ is contained in every non-zero submodule of $V$. This implies that $V$ is indecomposable.
+
+For all $f \in \End(V)$ we have $\img f_{|S} \subseteq S$: If $f_{|S} = 0$ this is trivial. Otherwise $\img f_{|S} \subseteq V$ is a non-zero submodule, so $S \subseteq \img f_{|S}$. Because $S$ is non-zero, $f^{-1}_{|S}(S) \subseteq S$ is a non-zero submodule. Because $S$ is simple we get $S = f^{-1}_{|S} (S)$ and thus $\img f_{|S} = S$.
+
+This allows us to define $\varphi : \End(V) \rightarrow \End(S), f \mapsto f_{|S}$. It is obvious that $\varphi$ is a ring homomorphism. By assumption $\varphi$ is surjective. We know show that \[ \ker \varphi = \{f \in \End(V) : \text{$f$ is not invertible}\}. \]
+
+It is clear that \[\ker \varphi \subseteq \{f \in \End(V) : \text{$f$ is not invertible}\}.\] Let $f \in \End(V)$ be not injective. Because $\ker f \neq 0$ is a submodule we have $S \subseteq \ker f$, so $f_{|S} = 0$. Let $g \in \End(V)$ be injective but not surjective. We get a descending chain
+\[
+ V \supseteq \img g \supseteq \img g^2 \supseteq \img g^3 \supseteq \ldots
+\]
+of submodules of $V$. By assumption this chain eventually stabilizes, i.e. there exists some $N \in \N$ with $\img g^n = \img g^{n+1}$ for all $n \geq N$. Because $g$ is injective we also have $\ker g^n = \ker g^{n+1}$ for all $n \in \N$. This implies that
+\[
+ V = \ker g^N \oplus \img g^N.
+\]
+Because $V$ is indecomposable this implies that $\ker g^n = 0$ and $\img g^N = V$ or $\ker g^N = V$ and $\img g^N = 0$. So $g$ is either not injective or surjective, which is contradicts either the injectivity or non-surjectivity of $g$. So $g$ has to be non-injective and thus contained in $\ker \varphi$.
+
+Because
+\[
+ \ker \varphi = \{f \in \End(V) : \text{$f$ is not invertible}\}
+\]
+is an ideal in $\End(V)$, we get that $\End(V)$ is local. so
+\[
+ J(\End(V)) = \{f \in \End(V) : \text{$f$ is not invertible}\} = \ker \varphi
+\]
+and thus
+\[
+ \End(V) / J(\End(V)) = \End(V) / \ker \varphi \cong \img \varphi = \End(S).
+\]
+
+
+
+
+
+
+
 
 
 
