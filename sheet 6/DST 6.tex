@@ -58,13 +58,21 @@
 
 \section{}
 We will assume that $V$ is an artinian module.
-$V$ is uniform, because $S \neq 0$ is contained in every non-zero submodule of $V$. This implies that $V$ is indecomposable.
 
-For all $f \in \End(V)$ we have $\img f_{|S} \subseteq S$: If $f_{|S} = 0$ this is trivial. Otherwise $\img f_{|S} \subseteq V$ is a non-zero submodule, so $S \subseteq \img f_{|S}$. Because $S$ is non-zero, $f^{-1}_{|S}(S) \subseteq S$ is a non-zero submodule. Because $S$ is simple we get $S = f^{-1}_{|S} (S)$ and thus $\img f_{|S} = S$.
+$V$ is uniform, because $S \neq 0$ is contained in every non-zero submodule of $V$. Thus $V$ is indecomposable.
 
-This allows us to define $\varphi : \End(V) \rightarrow \End(S), f \mapsto f_{|S}$. It is obvious that $\varphi$ is a ring homomorphism. By assumption $\varphi$ is surjective. We know show that \[ \ker \varphi = \{f \in \End(V) : \text{$f$ is not invertible}\}. \]
+For all $f \in \End(V)$ we have $\img f_{|S} \subseteq S$: If $f_{|S} = 0$ this is trivial. Otherwise $\img f_{|S} \subseteq V$ is a non-zero submodule, so $S \subseteq \img f_{|S}$. Because $S$ is non-zero, $f^{-1}_{|S}(S) \subseteq S$ is a non-zero submodule. Because $S$ is simple we get $S = f^{-1}_{|S} (S)$ and therefore $\img f_{|S} = S$.
 
-It is clear that \[\ker \varphi \subseteq \{f \in \End(V) : \text{$f$ is not invertible}\}.\] Let $f \in \End(V)$ be not injective. Because $\ker f \neq 0$ is a submodule we have $S \subseteq \ker f$, so $f_{|S} = 0$. Let $g \in \End(V)$ be injective but not surjective. We get a descending chain
+This allows us to define $\varphi : \End(V) \rightarrow \End(S), f \mapsto f_{|S}$. It is obvious that $\varphi$ is a ring homomorphism. By assumption $\varphi$ is surjective. We now show that
+\[
+ \ker \varphi = \{f \in \End(V) : \text{$f$ is not invertible}\}.
+\]
+
+It is clear that
+\[
+ \ker \varphi \subseteq \{f \in \End(V) : \text{$f$ is not invertible}\}.
+\]
+Let $f \in \End(V)$ be not injective. Because $\ker f \neq 0$ is a submodule of $V$ we have $S \subseteq \ker f$, so $f_{|S} = 0$. Let $g \in \End(V)$ be not surjective but assume $g$ is injective. We get a descending chain
 \[
  V \supseteq \img g \supseteq \img g^2 \supseteq \img g^3 \supseteq \ldots
 \]
@@ -72,7 +80,7 @@ of submodules of $V$. By assumption this chain eventually stabilizes, i.e. there
 \[
  V = \ker g^N \oplus \img g^N.
 \]
-Because $V$ is indecomposable this implies that $\ker g^n = 0$ and $\img g^N = V$ or $\ker g^N = V$ and $\img g^N = 0$. So $g$ is either not injective or surjective, which is contradicts either the injectivity or non-surjectivity of $g$. So $g$ has to be non-injective and thus contained in $\ker \varphi$.
+Because $V$ is indecomposable this implies that $\ker g^N = 0$ and $\img g^N = V$ or $\ker g^N = V$ and $\img g^N = 0$. So $g$ is either not injective or surjective, which is contradicts either the injectivity or non-surjectivity of $g$. So $g$ has to be non-injective and thus contained in $\ker \varphi$.
 
 Because
 \[
@@ -82,7 +90,7 @@ is an ideal in $\End(V)$, we get that $\End(V)$ is local. so
 \[
  J(\End(V)) = \{f \in \End(V) : \text{$f$ is not invertible}\} = \ker \varphi
 \]
-and thus
+and therefore
 \[
  \End(V) / J(\End(V)) = \End(V) / \ker \varphi \cong \img \varphi = \End(S).
 \]
@@ -100,10 +108,10 @@ and thus
  \[
   h : f \mapsto p \cdot f
  \]
- for some polynomial $p \in K[T]$, and each such map is an endomorphism von $V$.
+ for some polynomial $p \in K[T]$, and each such map is an endomorphism of $V$.
 \end{rem}
 \begin{proof}
- It is obvious that every such map is an module endomorphism of $V$. To show that every endomorphism is of this form we denote $T \cdot$ as $\phi : f \mapsto T \cdot f$ and $p := h(1)$. Because $h$ is a module homomorphism, it follows that for all $\sum_{i=0}^n a_i T^i \in K[T]$
+ It is obvious that every such map is an module endomorphism of $V$. To show that every endomorphism is of this form, we denote $T \cdot$ as $\phi : f \mapsto T \cdot f$ and let $p := h(1)$. Because $h$ is a module homomorphism, it follows that for all $\sum_{i=0}^n a_i T^i \in K[T]$
  \begin{align*}
   h\left( \sum_{i=0}^n a_i T^i \right)
   &= h\left( \sum_{i=0}^n a_i \phi^i(1) \right)
@@ -114,7 +122,7 @@ and thus
  \end{align*}
 \end{proof}
 
-We assume that the greatest common divisor of some polynomial $p \in K[T]$ and $0 \in K[T]$ is defined as $p$, because otherwise the statement does not hold true. In this case the direct summands $V \oplus 0$ and $0 \oplus V$ are counterexamples.
+We assume that the greatest common divisor of some polynomial $p \in K[T]$ and $0 \in K[T]$ is defined as $p$.
 
 Let $U$ be a direct summand of $V \oplus V$ with $U \not\in \{0, V \oplus V\}$. We know that $U$ is the kernel of some idempotent endomorphism of $V$. Let $h \in \End(V)$ be idempotent with $\ker h = U$. We know that $h$ can be uniquely written as
 \[
@@ -134,12 +142,13 @@ with $h_1, h_2, h_3, h_4 \in \End(V)$. From remark \ref{rem: endomorphisms K[T]}
 \]
 We get that
 \[
- \ker h = \left\{ \bvect{p\\q} \in V \oplus V : 
+ \ker h =
+ \left\{ \bvect{f\\g} \in V \oplus V : 
  \begin{bmatrix}
   p_1 & p_2 \\
   p_3 & p_4
  \end{bmatrix}
- \bvect{p\\q}
+ \bvect{f\\g}
  = 0.
  \right\}
 \]
@@ -151,16 +160,30 @@ We notice that the matrix
   p_3 & p_4
  \end{bmatrix}
 \]
-also describes an idempotent vector space endomorphism $h'$ of $K(X)^2$ with respect to the canonical basis, where $K(T)$ is the field of rational functions over $K$. It is clear that
+also describes an idempotent vector space endomorphism $h'$ of $K(T)^2$ with respect to the canonical basis, where $K(T)$ is the field of rational functions over $K$. It is clear that
 \[
- \ker h = \ker h' \cap K[T],
+ \ker h' = 
+ \left\{ \bvect{f\\g} \in K(T)^2 : 
+ \begin{bmatrix}
+  p_1 & p_2 \\
+  p_3 & p_4
+ \end{bmatrix}
+ \bvect{f\\g}
+ = 0.
+ \right\}
 \]
-and that $\ker h'$ is a subspace of $K(T)^2$. So to show that $U$ is of the form $U_{f,g}$ for some polynomials $f,g$ with greatest common divisor $1$, it is enough to show that $\ker h'$ has a basis $\ltrans{\bvect{f & g}}$ with such polynomials $f$ and $g$. Because $U \not\in \{0, V \oplus V\}$ we know that $h$ is non-zero and no isomorphism, so $\ker h'$ is one-dimensional. Let $b = \ltrans{\bvect{f & g}}$ be a basis vector of $\ker h'$. We can assume that $f$ and $g$ are polynomials, because otherwise we can multiply $b$ by some non-zero scalar $r \in K[T] \subseteq K(T)$ such that $rf$ and $rg$ are polynomials. We can also assume that the greatest common divisor of $f$ and $g$ is $1$, because otherwise we can multiply $b$ with some scalar $r' \in K(T)$ such that the greatest common divisor of $r'f$ and $r'g$ is $1$. Because $\ltrans{\bvect{f & g}}$ is a basis vector of $\ker h$ it follows that
+and
 \[
- U = \ker h = \ker h' \cap K[T] = \{(hf, hg) : h \in K[T]\} = U_{f,g}.
+ \ker h = \ker h' \cap (K[T] \oplus K[T]),
+\]
+So to show that $U$ is of the form $U_{f,g}$ for some polynomials $f,g$ with $\gcd(f,g)=1$, it is enough to show that $\ker h'$ has a basis $\left\{\ltrans{\bvect{f & g}}\right\}$ with such polynomials $f$ and $g$.
+
+From $U \not\in \{0, V \oplus V\}$ we know that $h$ is non-zero and no isomorphism, so $\ker h'$ is a one-dimensional subspace of $K(T)^2$. Let $b = \ltrans{\bvect{f & g}}$ be a basis vector of $\ker h'$. We can assume that $f$ and $g$ are polynomials, because otherwise we can multiply $b$ by some non-zero scalar $r \in K[T] \subseteq K(T)$ such that $rf$ and $rg$ are polynomials. We can also assume that the $\gcd(f,g)=1$, because otherwise we can multiply $b$ with some scalar $r' \in K(T)$ such that the greatest common divisor of $\gcd(r'f, r'g) = 1$. Because $\ltrans{\bvect{f & g}}$ is a basis vector of $\ker h'$ it follows that
+\[
+ U = \ker h = \ker h' \cap (K[T] \oplus K[T]) = \{(hf, hg) : h \in K[T]\} = U_{f,g}.
 \]
 
-Now we show the $U_{f,g}$ are direct summands: It is clear that $U_{f,g}$ is a submodule of $V \oplus V$ for alle $f,g \in K[T]$. Assume that the greatest common divisor of $f$ and $g$ is $1$. If $f=0$, then it follows that $g=1$, so
+We now show the modules of the form $U_{f,g}$ with $\gcd(f,g)=1$ are direct summands: It is clear that $U_{f,g}$ is a submodule of $V \oplus V$ for alle $f,g \in K[T]$. Assume that $\gcd(f,g)=1$. If $f=0$, then it follows that $g=1$, so
 \[
  U_{f,g} = 0 \oplus V = \ker \bvect{1&0\\1&0},
 \]
@@ -168,7 +191,7 @@ and if $g=0$ it follows that $f=1$, so
 \[
  U_{f,g} = V \oplus 0 = \ker \bvect{0&1\\0&1}.
 \]
-In both cases the endomorphisms are obvioulsy idempotent.
+In both cases the endomorphisms, expressed as matrices, are obvioulsy idempotent.
 If $f,g \neq 0$ we know from linear algebra that we can find polynomials $r,s\in K[T]$ with $rf + sg = 1$. Then the endomorphism of $V \oplus V$ of the form
 \[
  h = 
@@ -207,7 +230,7 @@ is a direct summand of $V \oplus V$.
 
 
 \subsection{}
-We know that $U_{T,T-1}$ is a direct summand of $V \oplus V$, because the greatest common divisor of $T$ and $T-1$ is $1$. Because $U_{T,T-1} \neq 0$ and $U_{T,T-1} \neq V \oplus V$ we know that neither $0$ nor $V \oplus V$ is a direct complement of $U_{T,T-1}$ in $V \oplus V$. $U_{1,0}$ and $U_{0,1}$ are also no direct complements of $U_{T,T-1}$ in $V \oplus V$, because $(0,1) \not\in U_{T,T-1} + U_{1,0}$ and $(1,0) \not\in U_{T,T-1} + U_{0,1}$.
+We know that $U_{T,T-1}$ is a direct summand of $V \oplus V$, because  $\gcd(T,T-1)=1$. Because $U_{T,T-1} \neq 0$ and $U_{T,T-1} \neq V \oplus V$ we know that neither $0$ nor $V \oplus V$ is a direct complement of $U_{T,T-1}$ in $V \oplus V$. $U_{1,0}$ and $U_{0,1}$ are also no direct complements of $U_{T,T-1}$ in $V \oplus V$, because $(0,1) \not\in U_{T,T-1} + U_{1,0}$ and $(1,0) \not\in U_{T,T-1} + U_{0,1}$.
 
 
 
@@ -217,12 +240,21 @@ We know that $U_{T,T-1}$ is a direct summand of $V \oplus V$, because the greate
 
 
 \subsection*{$\soc(M(w))$}
-Let $b_1, \ldots, b_{n+1}$ be the standard basis of $M(w)$. For all $1 \leq i \leq n+1$ let
+Let $b_1, \ldots, b_{n+1}$ be the standard basis of $M(w)$. For all $v \in M(w)$ let
 \[
- h_x(b_i) := \min \{k \in \N : \phi^k_x(b_i) = 0\} \text{ and }
- h_y(b_i) = \min \{k \in \N : \phi^k_y(b_i) = 0\}.
+ h_x(v) := \min \{k \in \N : \phi^k_x(v) = 0\} \text{ and }
+ h_y(v) := \min \{k \in \N : \phi^k_y(v) = 0\}.
 \]
-Let $c_1, \ldots, c_m \in \{b_1, \ldots, b_{n+1}\}$ be the pairwise different $b_i$ such that $h_x(b_i) = h_y(b_i) = 1$.
+Notice that
+\[
+ h_x(v) = 0 \Leftrightarrow v = 0 \Leftrightarrow h_y(v) = 0
+\]
+and
+\[
+ h_x(v) = 1 \Leftrightarrow h_y(v) = 1
+\]
+for all $v \in M(w)$.
+Let $c_1, \ldots, c_m \in \{b_1, \ldots, b_{n+1}\}$, $1 \leq m \leq n+1$, be the pairwise different $b_i$ with $h_x(b_i) = h_y(b_i) = 1$.
 
 For every $v \in M(w)$ with $h_x(v) = h_y(v) = 1$ the subspace $\gen{v} = K v$ is a simple submodule of $M(w)$, because $\gen{x}$ is one-dimensional and $\phi_x(v) = \phi_y(v) = 0$.
 
@@ -234,7 +266,7 @@ It follows that every simple submodule of $M(w)$ is of the form $\gen{v}$ for so
  \text{ and }
  0 = \phi_y(v) = \sum_{i=1}^{n+1} \lambda_i \phi_y(b_i),
 \]
-so for all $i$ we have the implication $\lambda_i \neq 0 \Rightarrow \phi_x(b_i) = \phi_y(b_i) = 1$. So we get
+so for all $i$ the implication $\lambda_i \neq 0 \Rightarrow \phi_x(b_i) = \phi_y(b_i) = 1$ holds. So we get
 \[
  \soc(M(w))
  = \sum_{\substack{S \subseteq M(w) \\ S \text{ simple}}} S
