@@ -213,6 +213,39 @@ We know that $U_{T,T-1}$ is a direct summand of $V \oplus V$, because the greate
 
 
 
+\section{}
+
+
+\subsection*{$\soc(M(w))$}
+Let $b_1, \ldots, b_{n+1}$ be the standard basis of $M(w)$. For all $1 \leq i \leq n+1$ let
+\[
+ h_x(b_i) := \min \{k \in \N : \phi^k_x(b_i) = 0\} \text{ and }
+ h_y(b_i) = \min \{k \in \N : \phi^k_y(b_i) = 0\}.
+\]
+Let $c_1, \ldots, c_m \in \{b_1, \ldots, b_{n+1}\}$ be the pairwise different $b_i$ such that $h_x(b_i) = h_y(b_i) = 1$.
+
+For every $v \in M(w)$ with $h_x(v) = h_y(v) = 1$ the subspace $\gen{v} = K v$ is a simple submodule of $M(w)$, because $\gen{x}$ is one-dimensional and $\phi_x(v) = \phi_y(v) = 0$.
+
+Every non-zero submodule $U \subseteq M(w)$ contains such a simple module: Let $v \in U$ with $v \neq 0$. If $h_x(v) = h_y(v) = 1$, $\gen{v}$ is such a submodule. Otherwise $h_x(v) > 1$ or $h_x(v) > 1$. In the first case $\gen{\phi^{h_x(v)-1}_x(v)}$ is such a submodule, in the second case $\gen{\phi^{h_y(v)-1}_y(v)}$ is such a submodule.
+
+It follows that every simple submodule of $M(w)$ is of the form $\gen{v}$ for some $v \in M(w)$ with $h_x(v) = h_y(v) = 1$. It is easy so see that each such $v$ is a linear combination of the $c_i$: For $v = \sum_{i=1}^{n+1} \lambda_i b_i$ we get
+\[
+ 0 = \phi_x(v) = \sum_{i=1}^{n+1} \lambda_i \phi_x(b_i)
+ \text{ and }
+ 0 = \phi_y(v) = \sum_{i=1}^{n+1} \lambda_i \phi_y(b_i),
+\]
+so for all $i$ we have the implication $\lambda_i \neq 0 \Rightarrow \phi_x(b_i) = \phi_y(b_i) = 1$. So we get
+\[
+ \soc(M(w))
+ = \sum_{\substack{S \subseteq M(w) \\ S \text{ simple}}} S
+ = \bigoplus_{i=1}^m \gen{c_i}.
+\]
+
+
+
+
+
+
 
 
 
