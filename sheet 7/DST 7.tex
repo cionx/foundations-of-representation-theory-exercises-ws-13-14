@@ -55,6 +55,35 @@
 
 
 
+\addtocounter{section}{1}
+\section{}
+Let $(e_1, \ldots, e_n)$ be a basis of $A$ as a vector space.
+
+
+\subsection*{(i) $\Rightarrow$ (ii)}
+Let $(b_1, \ldots, b_m)$ be a generating set of $M$ as an $A$-module. We can write $x \in M$ as $x = \sum_{j=1}^m a_j b_j$ with $a_j \in A$ for all $j$. We can write each $a_j$ as $a_j = \sum_{i=1}^n \lambda^j_i e_i$ with $\lambda^j_i \in K$ for all $i$. Thus we get
+\[
+ x = \sum_{j=1}^m a_j b_j =  \sum_{i=1}^n \sum_{j=1}^m \lambda^j_i e_i b_j.
+\]
+Thus $x$ is a linear combination of the $e_i b_j$. Because $x$ is arbitrary it follows that $\{e_i b_j\}_{i=1,\ldots,n, j=1,\ldots,m}$ is a finite generating set of $M$ as a vector space, so $M$ is finite-dimensional.
+
+
+\subsection*{(ii) $\Rightarrow$ (i)}
+If $(b_1, \ldots, b_m)$ is a basis of $M$ as a vector space, then $(b_1, \ldots, b_m)$ is also a generating set of $M$ as an $A$-module, because $\lambda b_i = \lambda 1_A b_i$ for all $\lambda \in K$ and $i$.
+
+
+\subsection*{(ii) $\Rightarrow$ (iii)}
+This follows directly from $l(M) \leq \dim(V) < \infty$.
+
+
+\subsection*{$\neg$(ii) $\Rightarrow$ $\neg$(iii)}
+We construct an ascending chain $U_0 \subsetneq U_1 \subsetneq U_2 \subsetneq \ldots$ of finite-dimensional submodules of $M$ as follows: We start with $U_0 := 0$. If $U_{n-1}$ is defined we choose some $v \in M \setminus U_{n-1}$ (this is possible because $U_{n-1}$ is finite-dimensional but $M$ is infinite-dimensional). The submodule $W = Av = \gen{e_1 v, \ldots, e_n v}$ of $M$ is not contained in $U_{n-1}$, so $U_{n-1} \subsetneq U_{n-1} + W =: U_n$. $U_n$ is finite-dimensional because $U_{n-1}$ and $W$ are finite-dimensional.
+
+For all $n \in \N$ the filtration
+\[
+ 0 = U_0 \subsetneq U_1 \subsetneq U_2 \subsetneq \ldots \subsetneq U_{n-1} \subsetneq M
+\]
+is of length $n$, so $l(M) \geq n$ for all $n \in \N$.
 
 
 
