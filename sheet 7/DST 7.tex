@@ -34,7 +34,7 @@
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\bvect}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
-\addtocounter{section}{20}
+\addtocounter{section}{24}
 
 \renewcommand{\thesection}{Exercise \arabic{section}:}
 \renewcommand{\thesubsection}{(\roman{subsection})}
@@ -87,22 +87,60 @@ is of length $n$, so $l(M) \geq n$ for all $n \in \N$.
 
 
 
+\section{}
+We can assume that $Q$ is weakly connected: Otherwise, if $Q_1, \ldots, Q_n$ are the weakly connected component of $Q$, it is easy to see that $KQ = \oplus_{i=1}^n KQ_i$ and $C(KQ) = \oplus_{i=1}^n C(KQ_i)$. Also notice that for every quiver $Q$ the center $C(KQ)$ is a subalgebra.
+
+I didn't manage to determine $C(KQ)$ for every weakly connected quiver, but at least for one kind: We look at a quiver with vertices $Q_0 = (1, \ldots, n)$ and arrows $(a_1, \ldots, a_n)$ where $a_i$ goes from $i$ to $i+1$ for $1 \leq i \leq n-1$ and $a_n$ goes from $n$ to $1$. One can see this quiver as a cycle with $n$ vertices.
+
+Let $x \in C(A)$ with $x = \sum_{k=1}^n \lambda_k p_k$ where $\lambda_k \in K$ and $p_k$ is a path in $Q$ for all $k$. We notice that $\lambda_k \neq 0$ implies that $s(p_k) = t(p_k)$: For all $i \in Q_0$ let
+\[
+ I^s_i := \{1 \leq k \leq n : s(p_k)=i\} \text{ and } I^t_i := \{1 \leq k \leq n : t(p_k)=i\}.
+\] Because $x \in C(A)$ we find that
+\begin{equation}\label{eq: pfade kreise}
+ \sum_{k \in I^t_i} \lambda_k p_k = e_i x = x e_i = \sum_{k \in I^s_i} \lambda_k p_k.
+\end{equation}
+Because the paths $p_k$ are linear independent we find that $I^s_i = I^t_i$. (This observation holds true for every quiver.)
+
+Because of the special form of $Q$ we can classify all paths $p$ in $Q$ with $s(p) = t(p)$ by $C^n_i$, where $C_i := (a_i, \ldots, a_n, a_1, a_2, \ldots, a_{i-1})$ and $n \in \N$.
+
+So we know that $x = \sum_{k=1}^n \lambda_k C^{\nu_k}_{i_k}$ with $\lambda_k \neq 0$ for all $k$. We find that for every $k$ we have $C_j^{\nu_i}$ as a non-zero linear factor of $x$ for all $i$: This follows directly from the equality given by \eqref{eq: pfade kreise}.
+So every $x \in C(A)$ is of the form
+\begin{equation*}\label{eq: looks like polynomial}
+ x
+ = \sum_{k=1}^d \lambda_k \sum_{i=1}^n C_i^k
+ = \sum_{k=1}^d \lambda_k \left( \sum_{i=1}^n C_i \right)^k.
+\end{equation*}
+It is also easy to see, that $C := \sum_{i=1}^n C_i \in C(A)$, because every path $p$ of $Q$ commutes with $C := \sum_{i=1}^n C_i$: If $s(p)=i$ and $t(p)=j$ we get that
+\[
+ pC = p C^1_i = C^1_j p = Cp.
+\]
+Because the paths are a $K$-Basis of $KQ$ it follows that $C$ commutes with every element in $KQ$.
+Because $C(A)$ as a subalgebra is closed under scalar multiplication, addition and multiplication, we find that
+\[
+ C(A) = \left\{ \sum_{k=1}^d \lambda_k C^k : \lambda_k \in K \text{ for all } k\right\}.
+\]
+In particular we find that $C(A) \cong K[T]$.
 
 
-\addtocounter{section}{1}
+
+
+
+
+
+
 \section{}
 Let
 \[
  P := \{p : \text{$p$ is a path from $i$ to $j$ such that there is no path from $j$ to $i$}\}.
 \]
-First we show that $P \subseteq J(KQ)$: Let $p \in P$ with $s(p) = i$ and $t(p)=j$, i.e. with $p = p e_i = e_j p$. Let $x \in A$ with $\sum_{k=1}^n \lambda_k q_k$ for paths $q_k$ and $\lambda_k \in K$. We find that
+First we show that $P \subseteq J(KQ)$: Let $p \in P$ with $s(p) = i$ and $t(p)=j$, i.e. with $p = p e_i = e_j p$ and $e_i q e_j = 0$ for all paths $q$ in $Q$. Let $x \in A$ with $x = \sum_{k=1}^n \lambda_k q_k$ for paths $q_k$ and $\lambda_k \in K$. We find that
 \[
  (px)^2
  = \left( \sum_{k=1}^n \lambda_k p q_k \right)^2
  = \sum_{k,l=1}^n \lambda_k \lambda_l p q_k p q_l
  = 0,
 \]
-because $pyp = p e_i q e_j p = 0$ for all paths $q$, since otherwise $q$ would be a path from $j$ to $i$, which contradicts $p \in P$. Because $px$ is nilpotent we find that $1-px$ is invertible. Because $x$ is arbitrary is follows that $p \in J(KQ)$.
+because $p q_k p = p e_i q_k e_j p = 0$ for all paths $k$. Because $px$ is nilpotent we find that $1-px$ is invertible. Because $x$ is arbitrary is follows that $p \in J(KQ)$.
 
 Now we show that $P$ is a basis of $J(KQ)$. We already know that $P$ is linear independent, because all paths are linear independent, so all that's left to show is that every $x \in J(KQ)$ can be written as a linear combination of elements in $P$.
 
