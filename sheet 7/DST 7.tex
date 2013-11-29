@@ -89,6 +89,62 @@ is of length $n$, so $l(M) \geq n$ for all $n \in \N$.
 
 
 
+\addtocounter{section}{1}
+\section{}
+Let
+\[
+ P := \{p : \text{$p$ is a path from $i$ to $j$ such that there is no path from $j$ to $i$}\}.
+\]
+First we show that $P \subseteq J(KQ)$: Let $p \in P$ with $s(p) = i$ and $t(p)=j$, i.e. with $p = p e_i = e_j p$. Let $x \in A$ with $\sum_{k=1}^n \lambda_k q_k$ for paths $q_k$ and $\lambda_k \in K$. We find that
+\[
+ (px)^2
+ = \left( \sum_{k=1}^n \lambda_k p q_k \right)^2
+ = \sum_{k,l=1}^n \lambda_k \lambda_l p q_k p q_l
+ = 0,
+\]
+because $pyp = p e_i q e_j p = 0$ for all paths $q$, since otherwise $q$ would be a path from $j$ to $i$, which contradicts $p \in P$. Because $px$ is nilpotent we find that $1-px$ is invertible. Because $x$ is arbitrary is follows that $p \in J(KQ)$.
+
+Now we show that $P$ is a basis of $J(KQ)$. We already know that $P$ is linear independent, because all paths are linear independent, so all that's left to show is that every $x \in J(KQ)$ can be written as a linear combination of elements in $P$.
+
+Assume that there is some $x \in J(KQ)$ which cannot be written as a linear combination of elements in $P$. Let $x = \sum_{k=1}^n \lambda_k x_k$ be a linear combination of $x$ with $\lambda_k \neq 0$ for all $k$ and the $x_k$ being pairwise different paths. We can assume w.l.o.g. that $x_k \not\in P$ for all $k$, because $P \subseteq J(KQ)$. We can also assume that $s(x_k) = s(x_l)$ and $t(x_k) = t(x_l)$ for all $k,l$, because otherwise we can replace $x$ by $e_{t(x_1)} x e_{s(x_1)} \in e_{t(x_1)} J(KQ) e_{s(x_1)} \subseteq J(KQ)$.
+
+Because $x_1 \not\in P$ we find some path $\bar{x}$ with $s(\bar{x}) = t(x_1)$ and $t(\bar{x}) = s(x_1)$. Because $x \in J(KQ)$ we know that $1-\bar{x}x$ is invertible. Notice that
+\[
+ y := \bar{x}{x} = \sum_{k=1}^n \lambda_k \underbrace{\bar{x} x_k}_{:= y_k}
+\]
+is non-zero with $s(y_k) = t(y_k) = s(y_l) = t(y_l) =: i$ for all $k,l$, i.e. the $y_k$ are closed paths from $i$ to $i$.
+
+Because $1-y$ is invertible we find som $y' = \sum_{k=1}^m \mu_k w_k$ with $\mu_k \neq 0$ and the $w_k$ being pairwise different paths, such that $yy' = 1$. So we get
+\begin{equation}\label{eq: not so beautiful}
+ \sum_{j \in Q_0} e_j
+ = 1
+ = (1-y) y'
+ = y' - yy'
+ = \sum_{k=1}^m \mu_k w_k - \sum_{k=1}^n \sum_{l=1}^m \lambda_k \mu_l y_k w_l.
+\end{equation}
+For $j \in Q_0$ let
+\[
+ J_j := \{1 \leq k \leq m: t(w_k) = j\}
+\]
+and $I := J_i$. By multiplying \eqref{eq: not so beautiful} from the left with $e_i$ we get
+\[
+ e_i = \sum_{k \in I} \mu_k w_k - \sum_{k=1}^n \sum_{l \in I} \lambda_k \mu_l y_k w_l.
+\]
+which contradicts the linear independence of the paths in $Q$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
