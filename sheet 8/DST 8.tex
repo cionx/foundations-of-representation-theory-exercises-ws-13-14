@@ -56,6 +56,19 @@
 
 
 
+\section{}
+We will assume that the vertices of $Q$ are ordered in the most obvious way. For all $1 \leq i \leq j \leq n$  let $p_{ij}$ be the unique path in $Q$ from $i$ to $j$ and $E_{ij}$ the matrix with $1$ as th $(j,i)$-entry and $0$ otherwise. ($E_{ij}$ maps $e_i$ to $e_j$.) We know that $(p_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $KQ$ and $(E_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $A$. Let $\phi : KQ \rightarrow A$ be the linear map given by $\phi(p_{ij}) = E_{ij}$ for all $1 \leq i \leq j \leq n$. $\phi$ is a $K$-algebra homomorphism since for all $1 \leq i \leq j \leq n$ and $1 \leq l \leq k \leq n$
+\[
+ \phi(p_{ij} p_{lk})
+ = \phi(\delta_{ki} p_{lj})
+ = \delta_{ki} \phi(\phi_{lj})
+ = \delta_{ki} E_{lj}
+ = E_{ij} E_{lk}
+ = \phi(p_{ij}) \phi(p_{lk}).
+\]
+$\phi$ is an isomorphism, because for the linear map $\psi: A \rightarrow KQ$ given by $\psi(E_{ij}) = p_{ij}$ for all $1 \leq i \leq j \leq n$ we have $\phi \psi = \id_A$ and $\psi \phi = \id_{KQ}$.
+
+
 
 
 
