@@ -8,6 +8,7 @@
 \usepackage{mathtools}
 \usepackage{paralist}
 \usepackage{leftidx}
+\usepackage{tikz}
 
 \theoremstyle{definition}
 \newtheorem{own}{}
@@ -90,7 +91,7 @@ with $S^2 = 1$ the map
 \[
  f : M_n(K) \rightarrow M_n(K), F \mapsto SFS
 \]
-is an vector space automorphism with $f^2 = \id$. $f$ is an algebra isomorphism because for all $F,G \in M_n(K)$
+is an vector space automorphism with $f^2 = 1$. $f$ is an algebra isomorphism because for all $F,G \in M_n(K)$
 \[
  f(FG) = SFGS = SFS^2GS = f(F)f(G).
 \]
@@ -155,6 +156,70 @@ we find that
  \end{pmatrix}.
 \]
 Thus $\phi$ induces an algebra isomorphism $\bar{\phi}$ between the algebras $KQ/I$ and $B/J = A$.
+
+
+
+
+
+\section{}
+
+
+\subsection*{$\neg$(ii) $\Rightarrow$ $\neg$(i)}
+Let $Q_V^1, \ldots, Q_V^n$ be the (weakly) connected components of $Q_V$. By assumption $n \geq 2$. For $j=1,\ldots,n$ we define the representation $V^j = (V^j_i, V^j_a)_{i \in Q_0, a \in Q_1}$ of $Q$ as
+\[
+ V^j_i =
+ \begin{cases}
+  V_i & \text{if } i \in (Q^j_V)_0, \\
+    0 & \text{if } i \not\in (Q^j_V)_0,
+ \end{cases}
+ \text{ and }
+ V^j_a =
+ \begin{cases}
+  V_a & \text{if } a \in (Q^j_V)_1, \\
+    0 & \text{if } a \not\in (Q^j_V)_1.
+ \end{cases}
+\]
+From the definition of $Q_V$ and because $V$ is thin it directly follows that $V = \bigoplus_{j=1}^n V^j$. Thus $V$ is decomposable.
+
+
+\subsection*{$\neg$(i) $\Rightarrow$ $\neg$(ii)}
+Let $V = V^1 \oplus V^2$ with $V^1, V^2 \neq 0$. Because $V$ is thin it follows that for all $i,j \in Q_0$ with $V^1_i \neq 0$, $V^2_i = 0$ and $V^2_j \neq 0$, $V^1_j = 0$ the vertices $i$ and $j$ are contained in $Q_V$ have no arrow between them: We find that for any $a \in Q_1$ from $i$ to $j$ or from $j$ to $i$ we have $V^1_a = 0$ and $V^2_a = 0$, thus $V_a = V^1_a \oplus V^2_a = 0$. So $Q_V$ has at least two connected components, one containing $i$ and one containing $j$.
+
+
+\subsection*{(ii) $\Rightarrow$ (iii)}
+Let $f \in \End_Q(V)$. It is clear that $f_i = 0$ for all $i \in Q_0 \setminus (Q_V)_0$. For all $i \in (Q_V)_0$ we have $\dim(V_i) = 1$ because $V$ is thin, and thus $f_i = \lambda_i 1_{V_i}$. Now let $i \in (Q_V)_0$ be fixed. Because $Q_V$ is connected we find $j \in (Q_V)_0$ s.t. an arrow $a$ from $i$ to $j$ or from $j$ to $i$ exists in $(Q_V)_1$. Thus we get one of the following commutative diagramms:
+\begin{center}
+\begin{minipage}{.3\textwidth}
+ \begin{tikzpicture}[node distance=2cm, auto]
+  \node (Vi) {$V_i$};
+  \node (Vi2) [right of = Vi] {$V_i$};
+  \node (Vj)  [below of = Vi] {$V_j$};
+  \node (Vj2) [right of = Vj] {$V_j$};
+  \draw[->] (Vi) to node {$\lambda_i$} (Vi2);
+  \draw[->] (Vj) to node {$\lambda_j$} (Vj2);
+  \draw[->] (Vi) to node {$V_a$} (Vj);
+  \draw[->] (Vi2) to node {$V_a$} (Vj2);
+ \end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.3\textwidth}
+ \begin{tikzpicture}[node distance=2cm, auto]
+  \node (Vi) {$V_i$};
+  \node (Vi2) [right of = Vi] {$V_i$};
+  \node (Vj)  [below of = Vi] {$V_j$};
+  \node (Vj2) [right of = Vj] {$V_j$};
+  \draw[->] (Vi) to node {$\lambda_i$} (Vi2);
+  \draw[->] (Vj) to node {$\lambda_j$} (Vj2);
+  \draw[->] (Vj) to node {$V_a$} (Vi);
+  \draw[->] (Vj2) to node {$V_a$} (Vi2);
+ \end{tikzpicture}
+\end{minipage}%
+\end{center}
+Because $V_i$ and $V_j$ are one-dimensional and $V_a \neq 0$ we find that in both cases $\lambda_i = \lambda_j$. Because $Q_V$ is connected we find inductively that $\lambda_i = \lambda_j$ for all $j \in (Q_V)_0$. Thus we get $f_j = \lambda_i \id_{V_j}$ for all $j \in (Q_V)_0$ and therefore $f = \lambda_i 1_V$. It follows that $\End_K(Q) \cong K$.
+
+
+\subsection*{(iii) $\Rightarrow$ (i)}
+From $\End_Q(V) \cong K$ it directly follows that $V$ is indecomposable.
+
 
 
 
