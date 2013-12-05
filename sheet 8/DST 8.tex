@@ -57,16 +57,47 @@
 
 
 \section{}
-We will assume that the vertices of $Q$ are ordered in the most obvious way. For all $1 \leq i \leq j \leq n$  let $p_{ij}$ be the unique path in $Q$ from $i$ to $j$ and for all $1 \leq i, j \leq n$ let $E_{ij} \in M_n(K)$ be the matrix with $1$ as the $(i,j)$-entry and $0$ otherwise. ($E_{ij}$ maps $e_j$ to $e_i$.) We know that $(p_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $KQ$ and $(E_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $A$. Let $\phi : KQ \rightarrow A$ be the linear map given by $\phi(p_{ij}) = E_{n-j,n-i}$ for all $1 \leq i \leq j \leq n$. $\phi$ is a $K$-algebra homomorphism since for all $1 \leq i \leq j \leq n$ and $1 \leq l \leq k \leq n$
-\begin{align*}
+We will assume that the vertices of $Q$ are ordered in the most obvious way. We define the subalgebra $B$ of $M_n(K)$ as
+\[
+ B := \{M = (m_{ij})_{ij} \in M_n(K) : m_{ij} = 0 \text{ for all } j > i \}.
+\]
+We will show that $KQ \cong B \cong A$.
+
+For all $1 \leq i \leq j \leq n$  let $p_{ij}$ be the unique path in $Q$ from $i$ to $j$ and for all $1 \leq i, j \leq n$ let $E_{ij} \in M_n(K)$ be the matrix with $1$ as the $(i,j)$-entry and $0$ otherwise. ($E_{ij}$ maps $e_j$ to $e_i$.) We know that $(p_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $KQ$, $(E_{ij})_{1 \leq j \leq i \leq n}$ is a basis of $B$ and $(E_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $A$.
+
+Let $\phi : KQ \rightarrow B$ be the linear map given by $\phi(p_{ij}) = E_{ji}$ for all $1 \leq i \leq j \leq n$. $\phi$ is a $K$-algebra homomorphism since for all $1 \leq i \leq j \leq n$ and $1 \leq l \leq k \leq n$
+\begin{equation*}
  \phi(p_{ij} p_{lk})
- &= \phi(\delta_{ki} p_{lj})
- = \delta_{ki} \phi(\phi_{lj})
- = \delta_{ki} E_{n-j, n-l} \\
- &= E_{n-j, n-i} E_{n-k, n-l}
+ = \phi(\delta_{ik} p_{lj})
+ = \delta_{ik} \phi(p_{lj})
+ = \delta_{ik} E_{jl}
+ = E_{ji} E_{kl}
  = \phi(p_{ij}) \phi(p_{lk}).
-\end{align*}
-$\phi$ is an isomorphism, because for the linear map $\psi: A \rightarrow KQ$ given by $\psi(E_{ij}) = p_{n-j,n-i}$ for all $1 \leq i \leq j \leq n$ we have $\phi \psi = \id_A$ and $\psi \phi = \id_{KQ}$.
+\end{equation*}
+$\phi$ is an isomorphism, because for the linear map $\psi: B \rightarrow KQ$ given by $\psi(E_{ij}) = p_{ji}$ for all $1 \leq i \leq j \leq n$ we have $\phi \psi = \id_B$ and $\psi \phi = \id_{KQ}$. Thus we have $KQ \cong B$.
+
+To show that $B \cong A$ we notice that for the matrix
+\[
+ S :=
+ \begin{pmatrix}
+    &         & 1 \\
+    & \diagup &   \\
+  1 &         & 
+ \end{pmatrix}
+ \in M_n(K)
+\]
+with $S^2 = 1$ the map
+\[
+ f : M_n(K) \rightarrow M_n(K), F \mapsto SFS
+\]
+is an vector space automorphism with $f^2 = \id$. $f$ is an algebra isomorphism because for all $F,G \in M_n(K)$
+\[
+ f(FG) = SFGS = SFS^2GS = f(F)f(G).
+\]
+We also notice that $f$ maps the Basis $(E_{ij})_{1 \leq i \leq j \leq n}$ of $A$ to the basis $(E_{ij})_{1 \leq j \leq i \leq n}$ of $B$, thus $f_{|A} \rightarrow f_{|B}$ is an algebra isomorphism.
+
+
+
 
 
 
