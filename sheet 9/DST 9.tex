@@ -25,7 +25,7 @@
 \newcommand{\C}{\operatorname{\mathbb{C}}}
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\img}{\operatorname{img}}
+\newcommand{\img}{\operatorname{im}}
 \newcommand{\soc}{\operatorname{soc}}
 \newcommand{\rad}{\operatorname{rad}}
 \newcommand{\kchar}{\operatorname{char}}
@@ -98,6 +98,28 @@ so $\psi$ is surjective. For $x \in A$ with $\psi(x) = 0$ we have $(x b_0, x b_1
 So $\psi$ in injective. This shows that $\psi$ is an $A$-module isomorphism and therefore $\li{A}{A} \cong \li{A}{A} \oplus \li{A}{A}$.
 
 One trivial example of such an algebra is $A = 0$.
+
+
+
+
+
+\section{}
+We notice that $\img(h_2 f_1) \subseteq \img g_1$: Because the upper row is exact we have $f_2 f_1 = 0$ and from the commutativity of the diagram it follows that
+\[
+ 0 = h_3 f_2 f_1 =  g_2 h_2 f_1.
+\]
+Because the lower row is exact this gives us
+\[
+ \img(h_2 f_1) \subseteq \ker g_2 = \img g_1.
+\]
+Because $g_1$ is injective it induces an isomorphism $\bar{g}_1 : Y_1 \rightarrow \img g_1$. In particular $1_{Y_1} = \bar{g}_1^{-1} g_1$ and $1_{\img g_1} = g_1 \bar{g}_1^{-1}$. Therefore $h_1 := \bar{g}_1^{-1} h_2 f_1$ is an homomorphism with
+\[
+ g_1 h_1 = g_1 \bar{g}_1^{-1} h_2 f_1 = 1_{\img g_1} h_2 f_1 = h_2 f_1.
+\]
+This homomorphism is unique because for $h'_2 : X_1 \rightarrow Y_1$ with $g_1 h'_1 = h_2 f_1$ we have
+\[
+ h'_1 = 1_{Y_1} h'_1 = \bar{g}_1^{-1} g_1 h'_1 = \bar{g}^{-1}_1 h_2 f_1 = h_1.
+\]
 
 
 
