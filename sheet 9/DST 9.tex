@@ -34,6 +34,7 @@
 \newcommand{\gen}[1]{\left\langle#1\right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\bvect}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\li}[2]{\leftidx{_{#1}}{#2}}
 
 \addtocounter{section}{32}
 
@@ -52,6 +53,61 @@
 
 \begin{document}
 \maketitle
+
+
+
+
+
+\section{}
+Assume that $\li{A}{A} \cong \li{A}{A} \oplus \li{A}{A}$ and let $\phi : \li{A}{A} \rightarrow \li{A}{A} \oplus \li{A}{A}$ be an algebra homomorphism. We set
+\[
+ (b_0, b_1) := \phi(1)
+\]
+and notice that for all $a \in A$
+\[
+ \phi(a) = \phi(a \cdot 1) = a \phi(1) = a(b_0, b_1) = (ab_0, ab_1).
+\]
+Because $\phi$ is surjective we find $a_0, a_1 \in A$ with
+\begin{align*}
+ (1,0) &= \phi(a_0) = (a_0 b_0, a_0 b_1) \text{ and } \\
+ (0,1) &= \phi(a_1) = (a_1 b_0, a_1 b_1).
+\end{align*}
+In particular we have $a_0 b_0 = a_1 b_1 = 1$ and $a_0 b_1 = a_1 b_0 = 0$. Because
+\[
+ \phi(b_0 a_0 + b_1 a _1)
+ = (b_0 a_0 b_0 + b_1 a_1 b_0, b_0 a_0 b_1 + b_1 a_1 b_1)
+ = (b_0, b_1)
+ = \phi(1)
+\]
+it follows from the injectivity of $\phi$ that $b_0 a_0 + b_1 a_1 = 1$.
+
+Now assume that there exist elements $a_0, a_1, b_0, b_1 \in A$ with $a_0 b_0 = a_1 b_1 = 1$, $a_0 b_1 = a_1 b_0 = 0$ and $b_0 a_0 + b_1 a_1 = 1$. We define
+\[
+ \psi : \li{A}{A} \rightarrow \li{A}{A} \oplus \li{A}{A}, a \mapsto a(b_0, b_1) = (ab_0, ab_1).
+\]
+It is clear that $\psi$ is an $A$-module homomorphism. For all $(c_0, c_1) \in \li{A}{A} \oplus \li{A}{A}$ we have
+\[
+ \psi(c_0 a_0 + c_1 a_1)
+ = (c_0 a_0 b_0 + c_1 a_1 b_0, c_0 a_0 b_1 + c_1 a_1 b_1)
+ = (c_0, c_1),
+\]
+so $\psi$ is surjective. For $x \in A$ with $\psi(x) = 0$ we have $(x b_0, x b_1) = (0,0)$, so $(x b_0 a_0, x b_1 a_1) = (0,0)$ and thus
+\[
+ 0 = x b_0 a_0 + x b_1 a_1 = x (b_0 a_0 + b_1 a_1) = x \cdot 1 = x.
+\]
+So $\psi$ in injective. This shows that $\psi$ is an $A$-module isomorphism and therefore $\li{A}{A} \cong \li{A}{A} \oplus \li{A}{A}$.
+
+One trivial example of such an algebra is $A = 0$.
+
+
+
+
+
+
+
+
+
+
 
 
 
