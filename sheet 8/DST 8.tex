@@ -64,18 +64,18 @@ We will assume that the vertices of $Q$ are ordered in the most obvious way. We 
 \]
 We will show that $KQ \cong B \cong A$.
 
-For all $1 \leq i \leq j \leq n$  let $p_{ij}$ be the unique path in $Q$ from $i$ to $j$ and for all $1 \leq i, j \leq n$ let $E_{ij} \in M_n(K)$ be the matrix with $1$ as the $(i,j)$-entry and $0$ otherwise. ($E_{ij}$ maps $e_j$ to $e_i$.) We know that $(p_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $KQ$, $(E_{ij})_{1 \leq j \leq i \leq n}$ is a basis of $B$ and $(E_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $A$.
+For all $1 \leq i \leq j \leq n$  let $p_{ij}$ be the unique path in $Q$ from $i$ to $j$ and for all $1 \leq i, j \leq n$ let $E_{ij} \in M_n(K)$ be the matrix with $1$ as the $(i,j)$-entry and $0$ otherwise. ($E_{ij}$ maps $e_j$ to $e_i$.) We know that $(p_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $KQ$, $(E_{ji})_{1 \leq i \leq j \leq n}$ is a basis of $B$ and $(E_{ij})_{1 \leq i \leq j \leq n}$ is a basis of $A$.
 
-Let $\phi : KQ \rightarrow B$ be the linear map given by $\phi(p_{ij}) = E_{ji}$ for all $1 \leq i \leq j \leq n$. $\phi$ is a $K$-algebra homomorphism since for all $1 \leq i \leq j \leq n$ and $1 \leq l \leq k \leq n$
+Let $\phi : KQ \rightarrow B$ be the linear map given by $\phi(p_{ij}) = E_{ji}$ for all $1 \leq i \leq j \leq n$. $\phi$ is a $K$-algebra homomorphism since for all $1 \leq i \leq j \leq n$ and $1 \leq k \leq l \leq n$
 \begin{equation*}
- \phi(p_{ij} p_{lk})
- = \phi(\delta_{ik} p_{lj})
- = \delta_{ik} \phi(p_{lj})
- = \delta_{ik} E_{jl}
- = E_{ji} E_{kl}
- = \phi(p_{ij}) \phi(p_{lk}).
+ \phi(p_{ij} p_{kl})
+ = \phi(\delta_{il} p_{kj})
+ = \delta_{il} \phi(p_{kj})
+ = \delta_{il} E_{jk}
+ = E_{ji} E_{lk}
+ = \phi(p_{ij}) \phi(p_{kl}).
 \end{equation*}
-$\phi$ is an isomorphism, because for the linear map $\psi: B \rightarrow KQ$ given by $\psi(E_{ij}) = p_{ji}$ for all $1 \leq i \leq j \leq n$ we have $\phi \psi = \id_B$ and $\psi \phi = \id_{KQ}$. Thus we have $KQ \cong B$.
+$\phi$ is an isomorphism, because for the linear map $\psi: B \rightarrow KQ$ given by $\psi(E_{ji}) = p_{ij}$ for all $1 \leq i \leq j \leq n$ we have $\phi \psi = \id_B$ and $\psi \phi = \id_{KQ}$. Thus we have $KQ \cong B$.
 
 To show that $B \cong A$ we notice that for the matrix
 \[
@@ -89,13 +89,13 @@ To show that $B \cong A$ we notice that for the matrix
 \]
 with $S^2 = 1$ the map
 \[
- f : M_n(K) \rightarrow M_n(K), F \mapsto SFS
+ \varphi : M_n(K) \rightarrow M_n(K), F \mapsto SFS
 \]
-is an vector space automorphism with $f^2 = 1$. $f$ is an algebra isomorphism because for all $F,G \in M_n(K)$
+is an vector space automorphism with $\varphi^2 = 1$. $\varphi$ is an algebra isomorphism because for all $F,G \in M_n(K)$
 \[
- f(FG) = SFGS = SFS^2GS = f(F)f(G).
+ \varphi(FG) = SFGS = SFS^2GS = \varphi(F)\varphi(G).
 \]
-We also notice that $f$ maps the Basis $(E_{ij})_{1 \leq i \leq j \leq n}$ of $A$ to the basis $(E_{ij})_{1 \leq j \leq i \leq n}$ of $B$, thus $f_{|A} \rightarrow f_{|B}$ is an algebra isomorphism.
+We also notice that $\varphi$ maps the Basis $(E_{ij})_{1 \leq i \leq j \leq n}$ of $A$ to the basis $(E_{ji})_{1 \leq i \leq j \leq n}$ of $B$, thus $\varphi_{|A} \rightarrow \varphi_{|B}$ is an algebra isomorphism.
 
 
 
@@ -106,7 +106,7 @@ We name the vertices of $Q$ as $1$ and $2$ with $s(\alpha) = t(\alpha) = 1$ and 
 \[
  P := \{e_1, e_2, p\} \cup \bigcup_{n \geq 1} \{\alpha^n, p\alpha^n \}
 \]
-is a basis of $KQ$. It is obvious that
+is a basis of $KQ$. It is clear that
 \[
  B =
  \begin{pmatrix}
@@ -165,7 +165,7 @@ Thus $\phi$ induces an algebra isomorphism $\bar{\phi}$ between the algebras $KQ
 
 
 \subsection*{$\neg$(ii) $\Rightarrow$ $\neg$(i)}
-Let $Q_V^1, \ldots, Q_V^n$ be the (weakly) connected components of $Q_V$. By assumption $n \geq 2$. For $j=1,\ldots,n$ we define the representation $V^j = (V^j_i, V^j_a)_{i \in Q_0, a \in Q_1}$ of $Q$ as
+Let $Q_V^1, \ldots, Q_V^n$ be the (weakly) connected components of $Q_V$. By assumption $n \geq 2$. For $j=1,\ldots,n$ we define the non-zero representation $V^j = (V^j_i, V^j_a)_{i \in Q_0, a \in Q_1}$ of $Q$ as
 \[
  V^j_i =
  \begin{cases}
@@ -183,7 +183,7 @@ From the definition of $Q_V$ and because $V$ is thin it directly follows that $V
 
 
 \subsection*{$\neg$(i) $\Rightarrow$ $\neg$(ii)}
-Let $V = V^1 \oplus V^2$ with $V^1, V^2 \neq 0$. Because $V$ is thin it follows that for all $i,j \in Q_0$ with $V^1_i \neq 0$, $V^2_i = 0$ and $V^2_j \neq 0$, $V^1_j = 0$ the vertices $i$ and $j$ are contained in $Q_V$ have no arrow between them: We find that for any $a \in Q_1$ from $i$ to $j$ or from $j$ to $i$ we have $V^1_a = 0$ and $V^2_a = 0$, thus $V_a = V^1_a \oplus V^2_a = 0$. So $Q_V$ has at least two connected components, one containing $i$ and one containing $j$.
+Let $V = V^1 \oplus V^2$ with $V^1, V^2 \neq 0$. Because $V$ is thin it follows that for all $i,j \in Q_0$ with $V^1_i \neq 0$, $V^2_i = 0$ and $V^2_j \neq 0$, $V^1_j = 0$ the corresponding vertices $i$ and $j$ in $Q_V$ have no arrows between them: We find that for any $a \in Q_1$ from $i$ to $j$ or from $j$ to $i$ we have $V^1_a = 0$ and $V^2_a = 0$, thus $V_a = V^1_a \oplus V^2_a = 0$. So $Q_V$ has at least two connected components, one containing $i$ and one containing $j$.
 
 
 \subsection*{(ii) $\Rightarrow$ (iii)}
