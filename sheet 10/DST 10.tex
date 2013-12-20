@@ -18,11 +18,11 @@
 \newtheorem*{ia}{Base case}
 \newtheorem*{is}{Induction step}
 
-\newcommand{\N}{\operatorname{\mathbb{N}}}
-\newcommand{\Z}{\operatorname{\mathbb{Z}}}
-\newcommand{\Q}{\operatorname{\mathbb{Q}}}
-\newcommand{\R}{\operatorname{\mathbb{R}}}
-\newcommand{\C}{\operatorname{\mathbb{C}}}
+\newcommand{\N}{{\operatorname{\mathbb{N}}}}
+\newcommand{\Z}{{\operatorname{\mathbb{Z}}}}
+\newcommand{\Q}{{\operatorname{\mathbb{Q}}}}
+\newcommand{\R}{{\operatorname{\mathbb{R}}}}
+\newcommand{\C}{{\operatorname{\mathbb{C}}}}
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\img}{\operatorname{im}}
@@ -54,6 +54,47 @@
 \begin{document}
 \maketitle
 
+
+
+
+
+\addtocounter{section}{3}
+
+
+
+
+
+\section{}
+We define the $K$-vector space
+\[
+ K^\N := \{ (\lambda_i)_{i \in \N} : \lambda_n \in K \text{ for all } n \in \N \}
+\]
+and for all $n \in \N$ the $K$-vector space
+\[
+ K^\N_n := \{(\lambda_i)_{i \in \N} : \lambda_0 = \ldots = \lambda_{n-1} = 0\}.1
+\]
+In particular $K^\N_0 = K^\N$.
+We now look at the short exact sequence sequence
+\begin{center}
+ \begin{tikzpicture}[node distance = 1.5cm]
+  \node (0_1)                      {$0$};
+  \node (K)     [right of = 0_1]   {$K$};
+  \node (K^N)   [right of = K]     {$K^\N$};
+  \node (K^N_2) [right of = K^N]   {$K^\N_2$};
+  \node (0_2)   [right of = K^N_2] {$0$};
+  \draw[->] (0_1) to (K);
+  \draw[->] (K) to node[above] {$f$} (K^N);
+  \draw[->] (K^N) to node[above] {$g$} (K^N_2);
+  \draw[->] (K^N_2) to (0_2);
+ \end{tikzpicture}
+\end{center}
+given by the $K$-linear maps
+\begin{gather*}
+ f: K \rightarrow K^\N, \lambda \mapsto (\lambda, 0, 0, \ldots)
+\shortintertext{and}
+ g: K^\N \rightarrow K^\N_2, (\lambda_0, \lambda_1, \lambda_2, \ldots) \mapsto (0,0,\lambda_1, \lambda_2, \ldots).
+\end{gather*}
+Now we just use the direct sum decomposition $K^\N = K^2 \oplus K^\N_2$, where it is clear that $K \ncong K^2$.
 
 
 
