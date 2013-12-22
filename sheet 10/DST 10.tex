@@ -58,7 +58,84 @@
 
 
 
-\addtocounter{section}{3}
+\addtocounter{section}{1}
+
+
+
+
+\section{}
+
+
+\subsection{}
+Let $x \in V_3$ with $a_3(x) = 0$. Because the diagram commutes we find that
+\[
+ 0 = (g_3 a_3)(x) = (a_4 f_3)(x).
+\]
+Because $a_4$ is a monomorphism this means that $f_3(x) = 0$. From the exactness of the upper row we get that $x \in \ker f_3 = \img f_2$, so there exists $y \in V_2$ with $f_2(y) = x$. Using the commutativity of the diagram we get that
+\[
+ 0 = a_3(x) = (a_3 f_2)(y) = (g_2 a_2)(y).
+\]
+Therefor $a_2(y) \in \ker g_2 = \img g_1 = \img (g_1 a_1)$, whereby we used that $a_1$ is an epimorphism. So we find some $z \in V_1$ with $(g_1 a_1)(z) = a_2(y)$. Combining all of the above and using the commutativity of the diagram we find that
+\[
+ a_2( f_1(z) ) = (a_2 f_1)(z) = (g_1 a_1)(z) = a_2(y).
+\]
+Because $a_2$ is a monomorphism it follows that $f_1(z) = y$. Because the upper row is exact we get
+\[
+ x = f_2(y) = (f_2 f_1)(z) = 0.
+\]
+So $a_3$ is a momomorphism.
+
+
+\subsection{}
+Let $x \in W_3$. We look at $g_3(x) \in W_4$. Because $a_4$ is an epimorphism there exists some $y \in V_4$ with $a_4(y) = g_3(x)$. We notice that $f_4(y) = 0$: Using the exactness and commutativity of the diagram we get
+\[
+ 0 = (g_4 g_3)(x) = (g_4 a_4)(y) ) = (a_5 f_4)(y),
+\]
+and because $a_5$ is a monomorphism it follows that $f_4(y) = 0$. Because the upper row we have
+\[
+ y \in \ker f_4 = \img f_3,
+\]
+and therefore there exists some $z \in V_3$ with $f_3(z) = y$.
+
+We now look at $a_3(z)$: From the above and the commutativity of the diagram we get that
+\[
+ g_3(x) = a_4(y) = (a_4 f_3)(z) = (g_3 a_3)(z) = g_3( a_3(z) ),
+\]
+so
+\[
+ g_3( x-a_3(z) ) = 0.
+\]
+Because the lower row is exact and $a_2$ is an epimorphism and the diagram commutes it follows that
+\[
+ x - a_3(z) \in \ker g_3 = \img g_2 = \img (g_2 a_2) = \img (a_3 f_2) \subseteq \img a_3.
+\]
+Because $a_3(z) \in \img a_3$ this gives us $x \in \img a_3$. So $a_3$ is an epimorphism.
+
+
+\subsection{}
+It is enough to assume that $a_1$ is an epimorphism, $a_5$ is a monomorphism and $a_2$ and $a_4$ are isomorphisms. Combining the two previous statements it then directly follows that $a_3$ is a mono- and an endomorphism, and therefore an isomorphism.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\addtocounter{section}{1}
 
 
 
